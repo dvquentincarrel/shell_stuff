@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -f /tmp/notmux ];then
+	rm /tmp/notmux
+	msg="✅ tmux enabled"
+else
+	touch /tmp/notmux
+	msg="❌ tmux disabled"
+fi
+if tty; then
+	echo "$msg"
+else
+	notify-send "$msg"
+fi

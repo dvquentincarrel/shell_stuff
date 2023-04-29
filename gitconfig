@@ -1,0 +1,22 @@
+[user]
+	name = carrel
+	email = dvquentincarrel@gmail.com
+[init]
+	defaultBranch = master
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[core]
+	editor = vim
+	trustctime = false
+[merge]
+	tool = vimdiff
+[mergetool.vimdiff]
+	layout = LOCAL,MERGED/REMOTE
+	trustExitCode = false
+[alias]
+	root = rev-parse --show-toplevel
+    unstage = restore --staged
+[pull]
+	rebase = true

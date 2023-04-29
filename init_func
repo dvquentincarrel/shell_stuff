@@ -1,0 +1,205 @@
+#!/bin/bash
+# Absolute melting pot of functions and utilities
+
+function repeat {
+	# "Syntactic sugar" for for loops
+	background=0
+
+	while getopts "bh" opt; do
+		case $opt in
+			b) background=1;;
+			h) echo "Usage: repeat NUMBER COMMANDS..."
+				echo "Repeats the chain of commands a certain time"
+				echo "Example: repeat 10 'date -Iseconds; sleep 2'"
+				echo -e "  -h\t displays this help message"
+				echo -e "  -b\t attempts to execute commands in the background"
+				return 0;;
+		esac
+	done
+	shift $((OPTIND -1)) 
+
+	iter=$1
+
+	shift # To remove the number of repeats
+	if [ $background -eq 0 ]; then
+		for ((i=0; i<$iter; i++)); do
+			eval $@
+		done
+	elif [ $background -eq 1 ]; then
+		for ((i=0; i<$iter; i++)); do
+			eval $@&
+		done
+	fi
+}
+export -f repeat
+
+function mcd {
+	# Makes + cd
+	mkdir -p "$1" && cd "$1"
+}
+export -f mcd
+
+function fcd {
+	# Follows a symbolic link to its parent directory
+	file=$(readlink "$1")
+	if [ -d "$file" ]; then
+		cd "$file"
+	else
+		cd $(dirname "$file")
+	fi
+}
+export -f fcd
+
+function proc {
+	# Returns infos about processes with a matching name
+    ps aux | grep --color=always -Pi "$1|STAT START" | head -n-1
+
+}
+export -f proc
+
+function cdd {
+	# cd + ls on arrival
+	cd $1 && ls -l --color=auto	
+}
+export -f cdd 
+
+function del_pkg {
+	# gives information about a package and asks for deletion. pacman-specific
+	reset_arg_opt
+	while getopts "h" opt; do
+		case $opt in
+			h) 	echo 'Prints info about package, asks for removal of it and dependancies installed with it'
+				echo 'sudo pacman -Qi $1 | /bin/grep -E "(Name|Description|Depends|Required|Reason)" && sudo pacman -Rs $1'
+				return 0;;
+		esac
+	done
+	shift $((OPTIND -1)) 
+	reset_arg_opt
+	sudo pacman -Qi $1 | /bin/grep -E "(Name|Description|Depends|Required|Reason)" && sudo pacman -Rs $1
+}
+export -f del_pkg 
+
+function xpr {
+	# opens current (default) or specified dir using a file explorer
+	# $1 : dir to open
+	# $2 : file explorer to try to open the dir with
+	reset_arg_opt
+	while getopts "h" opt; do
+	case $opt in
+
+	esac
+	done
+	exp_path="${1:-.}"
+	explorer="${2:-pcmanfm}"
+    # TODO
+	! (command -v $explorer &> /dev/null) && echo "$explorer is not a valid file explorer"
+	if [ -d $exp_path ]; then
+		($explorer $exp_path &) &> /dev/null
+	else
+		echo "$exp_path is not a directory"
+	fi
+	reset_arg_opt
+}
+export -f xpr
+
+function rrm {
+	# Temporary, recoverable rm (until next /tmp flushing at least)
+	reset_arg_opt
+	while getopts "h" opt; do
+		case $opt in
+		h) echo 'sends file to /tmp instead of removing
+			arg : $1 -> file
+			returns : nothing'
+			return 0;;
+		esac
+	done
+	mv $1 /tmp
+	reset_arg_opt
+}
+export -f rrm
+
+function reset_arg_opt {
+	unset OPTIND
+	unset opt
+}
+export -f reset_arg_opt
+
+colors() {
+	# Displays colors to test terminal
+	local fgc bgc vals seq0
+
+	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
+	printf "Values 30..37 are \e[33mforeground colors\e[m\n"
+	printf "Values 40..47 are \e[43mbackground colors\e[m\n"
+	printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
+
+	# foreground colors
+	for fgc in {30..37}; do
+		# background colors
+		for bgc in {40..47}; do
+			fgc=${fgc#37} # white
+			bgc=${bgc#40} # black
+
+			vals="${fgc:+$fgc;}${bgc}"
+			vals=${vals%%;}
+
+			seq0="${vals:+\e[${vals}m}"
+			printf "  %-9s" "${seq0:-(default)}"
+			printf " ${seq0}TEXT\e[m"
+			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
+		done
+		echo; echo
+	done
+
+	i=0
+	printf "=== SRG [1,29] ===\n\n\t"
+	for srg in {1..29}; do
+		printf '\e[%bm%02d TEXT\e[m ' $srg $srg
+		let i++
+		(( $i % 10 == 0 )) && printf '\n\n\t'
+	done
+
+	printf '\n\n'
+
+	i=0
+	printf "=== SRG [50,107] ===\n\n\t"
+	for srg in {50..107}; do
+		printf '\e[%bm%03d TEXT\e[m ' $srg $srg
+		let i++
+		(( $i % 10 == 0 )) && printf '\n\n\t'
+	done
+	printf '\n\n'
+}
+
+ex () {
+	# unzips file automatically using the right tool
+	if [ -f $1 ] ; then
+    	case $1 in
+			*.tar.bz2)   tar xjf $1   ;;
+	      	*.tar.gz)    tar xzf $1   ;;
+		    *.bz2)       bunzip2 $1   ;;
+		    *.rar)       unrar x $1   ;;
+	      	*.gz)        gunzip $1    ;;
+	      	*.tar)       tar xf $1    ;;
+	      	*.tbz2)      tar xjf $1   ;;
+	      	*.tgz)       tar xzf $1   ;;
+	      	*.zip)       unzip $1     ;;
+	      	*.Z)         uncompress $1;;
+	      	*.7z)        7z x $1      ;;
+      		*)           echo "'$1' cannot be extracted via ex()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
+}
+
+function share_hist {
+	$HSYNCW && history -a
+	$HSYNCR && history -n
+}
+export -f share_hist
+
+function empty_file_cache {
+	sudo sysctl vm.drop_caches=3
+}
+export -f empty_file_cache
