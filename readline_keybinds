@@ -8,29 +8,32 @@ while getopts "h" opt; do
 done
 shift $((OPTIND -1)) 
 
-function display_kb {
-echo -e "\e[1;4mMOVEMENT:\e[0m"
-echo -e "\e[1;33mC-a\e[0m: Move to start of line@\e[1;33mC-e\e[0m: Move to end of line"
-echo -e "\e[1;33mC-f\e[0m: Move forward a char@\e[1;33mC-b\e[0m: Move backward a char"
-echo -e "\e[1;33mA-f\e[0m: Move forward a word@\e[1;33mA-b\e[0m: Move backward a word"
-echo -e "\e[1;33mC-xx:\e[0m Moves between cursor and start of line"
-echo -e "\e[1;4mEDITION:\e[0m"
-echo -e "\e[1;33mA-u\e[0m: Capitalizes from cursor to end of word@\e[1;33mA-l\e[0m: Uncapitalizes from cursor to end of word"
-echo -e "\e[1;33mA-c\e[0m: Capitalizes current character, moves to end of word"
-echo -e "\e[1;33mC-k\e[0m: Cuts from cursor to end of line@\e[1;33mC-k:\e[0m Cuts from cursor to beginning of line"
-echo -e "\e[1;33mC-w\e[0m: Cuts previous word"
-echo -e "\e[1;33mC-y\e[0m: Pastes previously cut text@\e[1;33mA-y\e[0m: Cycles through cutting buffer"
-echo -e "\e[1;33mC-d\e[0m: Delete current character@\e[1;33mC-_\e[0m: Undo"
-echo -e "\e[1;4mPROCESSES:\e[0m"
-echo -e "\e[1;33mC-c\e[0m: Sends SIGINT to current process@\e[1;33mC-z\e[0m: Sends SIGTSTP to current process"
-echo -e "\e[1;33mC-d:\e[0m Sends EOF marker to bash"
-echo -e "\e[1;4mDISPLAY:\e[0m"
-echo -e "\e[1;33mC-s\e[0m: Stops all output@\e[1;33mC-q\e[0m: Resumes all output"
-echo -e "\e[1;33mC-l:\e[0m Clears the screen"
-echo -e "\e[1;4mHISTORY:\e[0m"
-echo -e "\e[1;33mC-p\e[0m: Go up in command history@\e[1;33mC-n\e[0m: Go down in command history"
-echo -e "\e[1;33mA-r:\e[0m Reverts change made to this history entry"
-echo -e "\e[1;33mC-r\e[0m: Attempts autocompletion from history@\e[1;33mC-o\e[0m: Run autocompleted command"
-echo -e "\e[1;33mC-g:\e[0m Aborts autocompletion attempt"
-}
-display_kb | column -s"@" -t
+echo "
+MOVEMENT:
+C-a: Move to start of line@C-e: Move to end of line
+C-f: Move forward a char@C-b: Move backward a char
+A-f: Move forward a word@A-b: Move backward a word
+C-xx: Moves between cursor and start of line
+EDITION:
+A-u: Capitalizes from cursor to end of word@A-l: Uncapitalizes from cursor to end of word
+A-c: Capitalizes current character, moves to end of word
+C-k: Cuts from cursor to end of line@C-k: Cuts from cursor to beginning of line
+C-w: Cuts previous word
+C-y: Pastes previously cut text@A-y: Cycles through cutting buffer
+C-d: Delete current character@C-_: Undo
+PROCESSES:
+C-c: Sends SIGINT to current process@C-z: Sends SIGTSTP to current process
+C-d: Sends EOF marker to bash
+DISPLAY:
+C-s: Stops all output@C-q: Resumes all output
+C-l: Clears the screen
+HISTORY:
+C-p: Go up in command history@C-n: Go down in command history
+A-r: Reverts change made to this history entry
+C-r: Attempts autocompletion from history@C-o: Run autocompleted command
+C-g: Aborts autocompletion attempt" \
+    | perl -pe 's/(^|@)(.*?):(?!$)/\1\e[1;33m\2\e[m:/g;'\
+            -e 's/(^.*:$)/\e[1;4m\1\e[0m/' \
+    | column -s"@" -t
+#1;4m
+#1;33m
