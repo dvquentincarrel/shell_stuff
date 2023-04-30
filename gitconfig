@@ -22,7 +22,7 @@
     unstage = restore --staged
     amend = commit --amend
     denselog = log --pretty=format:'%C(auto)%h  %C(blue)%an  %Creset%s %C(auto)%d' --graph
-    allog = log --all --graph
+    allog = log --all --graph --stat
 [pull]
 	rebase = true
 [fetch]
