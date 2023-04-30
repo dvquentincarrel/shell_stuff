@@ -4,9 +4,9 @@
 source variables.sh
 source aliases.sh
 source init_func
-source ~/.LESS_TERMCAP # less config file
-source ~/config/ls_colors
-source ~/config/nnn_config
+source LESS_TERMCAP # less's config file
+source ls_colors
+source nnn_config
 source bashline_colors
 
 PROMPT_COMMAND="source q_bashline; share_hist"
