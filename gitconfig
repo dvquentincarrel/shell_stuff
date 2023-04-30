@@ -1,6 +1,13 @@
 [user]
 	name = dvquentincarrel
 	email = dvquentincarrel@gmail.com
+
+[includeIf "gitdir:~/git/"]
+    path = ~/.gitconfig-work
+
+[includeIf "gitdir:~/cours/"]
+    path = ~/.gitconfig-etu
+
 [init]
 	defaultBranch = master
 [diff]

@@ -11,6 +11,7 @@ for executable in \
 done
 
 for dotfile in tmux.conf bashrc \
-        gitconfig profile inputrc; do
+        gitconfig profile inputrc \
+        gitconfig-etu gitconfig-work; do
     ln -si  "$PWD/$dotfile" "$HOME/.$dotfile"
 done
