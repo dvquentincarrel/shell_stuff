@@ -6,8 +6,8 @@ alias egrep='egrep --colour=auto' #COLORS
 alias fgrep='fgrep --colour=auto' #MORE COLORS
 alias grep='grep --colour=auto' #EVEN MORE COLORS
 alias ls='ls --color=auto --group-directories-first' #STILL MORE COLORS
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
+alias cp="cp -i" # confirm before overwriting something
+alias df='df -h' # human-readable sizes
 alias np='nano -w PKGBUILD'
 alias more=less
 
@@ -38,13 +38,14 @@ alias rp="repeat"
 alias grepp='grep --colour=auto -P'
 alias pcd="cd -P"
 alias lg="ll -a --color=always | grep --color=never"
+alias functions="declare -F | cut -d' ' -f 3"
 
 # ===== Git =====  
 
 alias gst="git status"
 alias gstatus=gst
 alias gcomm="git commit -m"
-alias gcom="git commit --verbose"
+alias gcom="git commit"
 alias gad="git add"
 alias gadd=gad
 alias gpu="git push"
@@ -52,9 +53,9 @@ alias gpush=gpu
 alias gpl="git pull"
 alias gpull=gpl
 alias gdt="git difftool"
-alias glog="git log --branches --abbrev-commit"
-alias glogs="git log --branches --oneline"
-alias glogg="git log --branches --graph --oneline --decorate=full"
+alias glog="git denselog"
+alias aglog="git allog"
+alias pglog="git patchlog"
 alias gchp="git cherry-pick"
 alias gchpa="gchp --abort"
 alias gchpc="gchp --continue"
