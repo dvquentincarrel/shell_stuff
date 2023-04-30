@@ -1,5 +1,5 @@
 [user]
-	name = carrel
+	name = dvquentincarrel
 	email = dvquentincarrel@gmail.com
 [init]
 	defaultBranch = master
@@ -10,6 +10,8 @@
 [core]
 	editor = vim
 	trustctime = false
+[commit]
+    verbose = true
 [merge]
 	tool = vimdiff
 [mergetool.vimdiff]
@@ -18,5 +20,10 @@
 [alias]
 	root = rev-parse --show-toplevel
     unstage = restore --staged
+    amend = commit --amend
+    denselog = log --pretty=format:'%C(auto)%h  %C(blue)%an  %Creset%s %C(auto)%d' --graph
+    allog = log --all --graph
 [pull]
 	rebase = true
+[fetch]
+    prune = true
