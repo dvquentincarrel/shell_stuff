@@ -21,6 +21,7 @@ C-k: Cuts from cursor to end of line@C-k: Cuts from cursor to beginning of line
 C-w: Cuts previous word
 C-y: Pastes previously cut text@A-y: Cycles through cutting buffer
 C-d: Delete current character@C-_: Undo
+M-C-H: Backward kill word
 PROCESSES:
 C-c: Sends SIGINT to current process@C-z: Sends SIGTSTP to current process
 C-d: Sends EOF marker to bash
