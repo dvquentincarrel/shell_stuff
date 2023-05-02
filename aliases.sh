@@ -36,7 +36,7 @@ alias pcl='echo -n $PWD | clip'
 alias rp="repeat"
 alias grepp='grep --colour=auto -P'
 alias pcd="cd -P"
-alias lg="ll -a --color=always | grep --color=never"
+alias lg="ll -a --color=always | grep -i --color=never"
 alias functions="declare -F | cut -d' ' -f 3"
 alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 
