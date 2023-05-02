@@ -17,4 +17,3 @@ export CALCHISTFILE=/dev/null # To disable the use of a history file for /bin/ca
 export LESSHISTFILE=/dev/null # Same thing for /bin/less
 export HSYNCW=true # push history lines (after each command)
 export HSYNCR=false # pull history lines (after each command)
-export GIT_ASYNC=true # Toggles asynchronicity of git_lineutils
