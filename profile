@@ -7,6 +7,7 @@ if [ -f ~/.ssh/id_rsa.pub ]; then
 	if [ "$id" = "jADy" ]; then
 		export MACHINE="local"
 		export COMPOSITOR="picom"
+        export WALLPAPERS="/mnt/storage/pictures/Wallpaper/"
 		xrandr --output HDMI-0 --primary --left-of DP-1
 	elif [ "$id" = "bKTX" ]; then
 		export MACHINE="opi"
