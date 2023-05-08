@@ -211,6 +211,6 @@ export -f galias
 
 # File CLip - puts absolute path of file passed as arg in clipboard
 function fcl {
-    readlink -f "$1" | xclip -sel clip 
+    readlink -nf "$1" | xclip -sel clip 
 }
 export -f fcl
