@@ -63,6 +63,7 @@ alias gchpc="gchp --continue"
 alias gpgs="gchp --skip"
 alias gct="git checkout"
 alias groot='cd $(git root)'
+alias gfh='git fetch'
 
 # shells are preceeded by a hyphen if they're login shells
 if [[ "$0" = *"zsh" ]]; then
