@@ -50,3 +50,8 @@ set menu-complete-display-prefix Off
 set bell-style none
 # Does what is says instead of ringing the bell once before
 set show-all-if-ambiguous on
+# Should enable seeing current vim mode
+set show-mode-in-prompt on
+# Prompt indicators for current vi mode
+set vi-cmd-mode-string \1\e[95m\2C\1\e[0m\2-
+set vi-ins-mode-string \1\e[93m\2I\1\e[0m\2-
