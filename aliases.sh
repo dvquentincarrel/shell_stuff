@@ -24,6 +24,8 @@ alias rm='rm -vi'
 alias mv='mv -i'
 alias cal='cal -my'
 alias which='which -a'
+alias vim='nvim'
+alias sqlite3='sqlite3 -header -column'
 
 # ===== New aliases =====  
 
@@ -39,7 +41,6 @@ alias pcd="cd -P"
 alias lg="ll -a --color=always | grep -i --color=never"
 alias functions="declare -F | cut -d' ' -f 3"
 alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
-alias vim='nvim'
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
 
 # ===== Git =====  
@@ -67,9 +68,9 @@ alias groot='cd $(git root)'
 alias gfh='git fetch'
 
 # shells are preceeded by a hyphen if they're login shells
-if [[ "$0" = *"zsh" ]]; then
+if [[ -n "$ZSH_VERSION" ]]; then
 	alias reload_all='source ~/.zshrc'
-elif [[ "$0" = *"bash" ]]; then
+elif [[ -n "$BASH_VERSION" ]]; then
 	alias reload_all='source ~/.bashrc'
 else
 	printf -v msg '"%b" shell unknown: could not set alias reload_all' "$0"
