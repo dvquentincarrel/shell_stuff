@@ -83,12 +83,6 @@ shopt -s nocaseglob # Case-insensitive pathname globbing
 shopt -u huponexit # Sends SIGHUP to all jobs on shell exit
 shopt -u xpg_echo # Allows echo to process things like \t, \n, ...
 
-# Socket setup for Q_BashLine communication
-coproc CO_NC_GIT { trap -- "true" EXIT; nc -klU /tmp/.QBL_$$; } && disown $!
-git_lineutils $$ & disown $!
-LINEUTILS_PID=$!
-trap "rm -f /tmp/.QBL_$$; kill $LINEUTILS_PID" EXIT
-
 source ~/.local/bin/sh_setup
 
 # Tmux "integration"
