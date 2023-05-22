@@ -55,3 +55,4 @@ set show-mode-in-prompt on
 # Prompt indicators for current vi mode
 set vi-cmd-mode-string \1\e[95m\2C\1\e[0m\2-
 set vi-ins-mode-string \1\e[93m\2I\1\e[0m\2-
+set emacs-mode-string
