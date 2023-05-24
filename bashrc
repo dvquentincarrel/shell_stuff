@@ -84,6 +84,7 @@ shopt -u huponexit # Sends SIGHUP to all jobs on shell exit
 shopt -u xpg_echo # Allows echo to process things like \t, \n, ...
 
 source ~/.local/bin/sh_setup
+which qbl_init >/dev/null && source qbl_init
 
 # Tmux "integration"
 if which tmux &>/dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ]; then
