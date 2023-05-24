@@ -10,7 +10,7 @@ for executable in \
     ln -si "$PWD/$executable" "$lbin/$executable"
 done
 
-for dotfile in tmux.conf bashrc \
+for dotfile in tmux.conf bashrc zshrc \
         gitconfig profile inputrc alacritty.yml \
         gitconfig-etu gitconfig-work; do
     ln -si  "$PWD/$dotfile" "$HOME/.$dotfile"
