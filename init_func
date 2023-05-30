@@ -214,3 +214,12 @@ function fcl {
     readlink -nf "$1" | xclip -sel clip 
 }
 export -f fcl
+
+# Does something at the specified time, precise up to the second
+function doat { 
+    while [[ $(date +%R:%S) < "$1" ]]; do
+        sleep 1;
+    done
+    eval "$2"
+}
+export -f doat
