@@ -409,4 +409,8 @@ tags
 # Persistent undo
 [._]*.un~
 
+# Backup files
+*.bak
+*.old
+
 # End of https://www.toptal.com/developers/gitignore/api/node,python,vim,java,c
