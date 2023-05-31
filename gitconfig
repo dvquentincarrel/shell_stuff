@@ -35,6 +35,7 @@
     updiff = "!updiff() { git diff HEAD~$1; }; updiff"
     alias = "!git config --get-regexp '^alias.' | perl -pe 's/^alias.//;' -e 's/^(.*?) /\\e[1;33m\\1\\e[0m: /'"
     github = "!git remote add origin git@github.com:${1:-dvquentincarrel}/$(basename $PWD).git; git push -u origin master"
+    clean-ignore = clean -dfX
 [pull]
 	rebase = true
 [fetch]
