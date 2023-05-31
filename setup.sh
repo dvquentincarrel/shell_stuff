@@ -15,3 +15,7 @@ for dotfile in tmux.conf bashrc \
         gitconfig-etu gitconfig-work; do
     ln -si  "$PWD/$dotfile" "$HOME/.$dotfile"
 done
+
+ignorepath="$HOME/.config/git"
+mkdir -p "$ignorepath"
+ln -si "$PWD/gitignore" "$ignorepath/ignore"
