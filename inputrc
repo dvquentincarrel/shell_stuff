@@ -36,6 +36,8 @@ TAB:menu-complete
 "[Z":menu-complete-backward
 # M-tab, shows completions as if in default mode
 "	":possible-completions
+# C-n, forward history lookup
+"":forward-search-history
 # Colors files suggested for autocompletion
 set colored-stats On
 # Colors the prefix in the autocomplete list under
