@@ -34,7 +34,7 @@ alias monitor-swap='xrandr --output HDMI-0 --primary --left-of DP-1'
 alias clip='xclip -sel clip'
 alias reload='source ~/.local/bin/sh_setup'
 alias xv='xvtouch'
-alias pcl='echo -n $PWD | clip'
+alias pcl='echo -n $PWD | clip; echo "$PWD sent to clipboard"'
 alias rp="repeat"
 alias grepp='grep --colour=auto -P'
 alias pcd="cd -P"
