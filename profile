@@ -12,6 +12,7 @@ if [ -f ~/.ssh/id_rsa.pub ]; then
 	elif [ "$id" = "bKTX" ]; then
 		export MACHINE="opi"
 		export COMPOSITOR="compton"
+        export PATH=/home/quentin/opi_repo:$PATH
 		xrandr --output eDP-1 --primary
 		xrandr --output HDMI-1 --left-of eDP-1
 		xrandr --auto
