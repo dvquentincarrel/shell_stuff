@@ -223,3 +223,9 @@ function doat {
     eval "$2"
 }
 export -f doat
+
+# Easier to remember than history -n
+function sync_hist {
+    history -n
+}
+export -f sync_hist
