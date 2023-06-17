@@ -47,15 +47,12 @@ alias fzd='cd $(find . -type d | fzf)'
 # ===== Git =====  
 
 alias gst="git status"
-alias gstatus=gst
 alias gcomm="git commit -m"
 alias gcom="git commit"
 alias gad="git add"
 alias gadd=gad
 alias gpu="git push"
-alias gpush=gpu
-alias gpl="git pull"
-alias gpull=gpl
+alias gpl="git pull --verbose"
 alias gdt="git difftool"
 alias glog="git denselog"
 alias aglog="git allog"
