@@ -1,6 +1,21 @@
 #!/bin/bash
 # Dense Roach, as in Git Crawler (yes, I know)
-#
+
+FETCH=false
+
+while getopts "fh" opt; do
+    case $opt in
+        h) echo "Usage: dense_roach [-f]"
+           echo "Walks subdirectories to give a summary of the state of the repositories"
+           echo "  -f does git fetch before building status"
+           exit 0;;
+        f) FETCH=true;;
+        *) echo "invalid option '$opt'"
+                exit 1;;
+        esac
+    done
+    shift $((OPTIND -1)) 
+
 function get_infos {
     status=$(git -C "$1" status)
     porcelain_status=$(git -C "$1" status --porcelain=1)
@@ -23,6 +38,11 @@ export -f get_infos
 function check_dir {
     root=$(git -C "$1" rev-parse --show-toplevel 2>/dev/null | xargs basename 2>/dev/null)
     if [[ -n "$root" ]] && [[ "$root" == "$1" ]]; then
+        if $2; then
+            printf "fetching $1..."
+            git -C "$1" fetch >/dev/null
+            printf "\e[G\e[K"
+        fi
         get_infos "$1"
         return 0
     else
@@ -33,4 +53,4 @@ export -f check_dir
 
 
 #find * -type d -not -exec bash -c 'check_dir {}' ';' -prune -o -type d -exec bash -c 'get_infos {}' ';'
-find * -type d -not -exec bash -c 'check_dir {}' ';' -prune
+find * -type d -not -exec bash -c "check_dir {} $FETCH" ';' -prune
