@@ -37,6 +37,8 @@
     github = "!git remote add origin git@github.com:${1:-dvquentincarrel}/$(basename $PWD).git; git push -u origin master"
     clean-ignore = clean -dfX
     hooks = "!find $(git root)/.git/hooks -type f ! -name '*.sample'"
+    mad = "!g_madd() { git add $(git diff --name-only --diff-filter=M); }; g_madd"
+    aad = "!g_aad() { git add $(git diff --name-only --diff-filter=A); }; g_add"
 [pull]
 	rebase = true
 [fetch]
