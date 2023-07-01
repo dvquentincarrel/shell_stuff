@@ -41,4 +41,9 @@
 	rebase = true
 [fetch]
     prune = true
+[log]
+    abbrevCommit = true
+    date = iso
+[diff]
+    colorMoved = plain
 # vim: ft=dosini
