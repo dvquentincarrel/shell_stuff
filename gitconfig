@@ -1,13 +1,11 @@
 [user]
 	name = dvquentincarrel
 	email = dvquentincarrel@gmail.com
-
+	signingkey = 1639450FB57FD4A37D8BEAC18C8E58608A04539A
 [includeIf "gitdir:~/git/"]
     path = ~/.gitconfig-work
-
-[includeIf "gitdir:~/cours/"]
+[includeIf "gitdir:~/**/cours/"]
     path = ~/.gitconfig-etu
-
 [init]
 	defaultBranch = master
 [diff]
@@ -28,7 +26,7 @@
 	root = rev-parse --show-toplevel
     unstage = restore --staged
     amend = commit --amend
-    denselog = log --pretty=format:'%C(auto)%h  %C(blue)%an  %Creset%s %C(auto)%d' --graph
+    denselog = log --pretty=format:'%C(auto)%h %G? %C(cyan)%as %C(blue)%an  %Creset%s %C(auto)%d' --graph
     allog = log --all --graph --stat
     patchlog = log -p --stat --pretty=short
     upbase = "!upbase() { git rebase -i HEAD~$1; }; upbase"
@@ -43,3 +41,4 @@
 	rebase = true
 [fetch]
     prune = true
+# vim: ft=dosini
