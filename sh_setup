@@ -8,4 +8,7 @@ source LESS_TERMCAP # less's config file
 source ls_colors
 source nnn_config
 
+complete -W '$(git rev-parse 2>/dev/null && git branch --format "%(refname:short)")' gct
+complete -W '$(git rev-parse 2>/dev/null && git status --short | sed "s/  / /" | cut -d" " -f2 )' gadd
+
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND;} share_hist"

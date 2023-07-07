@@ -63,8 +63,6 @@ RCREAD=true
 
 # -c(ommandes) -f(iles)
 complete -cf sudo
-complete -W '$(git rev-parse 2>/dev/null && git branch --format "%(refname:short)")' gct
-complete -W '$(git rev-parse 2>/dev/null && git status --porcelain=2 | cut -d" " -f9 )' gadd
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when

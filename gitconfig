@@ -46,4 +46,6 @@
     date = iso
 [diff]
     colorMoved = plain
+[status]
+    relativePath = true
 # vim: ft=dosini
