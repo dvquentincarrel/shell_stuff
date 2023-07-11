@@ -45,7 +45,7 @@
     abbrevCommit = true
     date = iso
 [diff]
-    colorMoved = plain
+    colorMoved = no
 [status]
     relativePath = true
 # vim: ft=dosini
