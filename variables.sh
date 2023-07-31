@@ -7,7 +7,6 @@ elif [ "$MACHINE" = "opi" ]; then
 fi
 
 export HISTCONTROL="ignoreboth" # If starting with a space, if same command as previously
-export HISTIGNORE="history*"
 export HISTSIZE=5000000
 export PAGER='less -S'
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
