@@ -37,7 +37,7 @@
     hooks = "!find $(git root)/.git/hooks -type f ! -name '*.sample'"
     mad = "!g_madd() { git add $(git diff --name-only --diff-filter=M); }; g_madd"
     aad = "!g_aad() { git add $(git diff --name-only --diff-filter=A); }; g_add"
-    unrebase = "!g_unrebase() { git reset --hard $(git reflog | grep 'rebase: checkout' | head -n1 | cut -f1 -d' ')~; }; g_unrebase"
+    unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
 [pull]
 	rebase = true
 [fetch]
