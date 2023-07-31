@@ -58,3 +58,5 @@ set show-mode-in-prompt on
 set vi-cmd-mode-string \1\e[95m\2C\1\e[0m\2-
 set vi-ins-mode-string \1\e[93m\2I\1\e[0m\2-
 set emacs-mode-string
+# Prevents history from staying modified
+set revert-all-at-newline on
