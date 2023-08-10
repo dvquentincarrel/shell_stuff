@@ -34,8 +34,6 @@ $endif
 TAB:menu-complete 
 # Same but S-tab, backwards
 "[Z":menu-complete-backward
-# M-tab, shows completions as if in default mode
-"	":possible-completions
 # C-n, forward history lookup
 "":forward-search-history
 # Colors files suggested for autocompletion
