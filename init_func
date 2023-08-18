@@ -52,8 +52,8 @@ export -f fcd
 
 function proc {
 	# Returns infos about processes with a matching name
-    ps aux | grep --color=always -Pi "$1|STAT START" | head -n-1
-
+    ps axo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,command | \
+        grep --color=always -Pi "$1|STAT +START" | head -n-1
 }
 export -f proc
 
