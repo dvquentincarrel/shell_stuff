@@ -40,7 +40,7 @@ function check_dir {
     if [[ -n "$root" ]] && [[ "$root" == "$1" ]]; then
         if $2; then
             printf "fetching $1..."
-            git -C "$1" fetch >/dev/null
+            git -C "$1" fetch -q >/dev/null
             printf "\e[G\e[K"
         fi
         get_infos "$1"
