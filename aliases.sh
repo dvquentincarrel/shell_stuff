@@ -26,6 +26,7 @@ alias cal='cal -my'
 alias which='which -a'
 alias vim='nvim'
 alias sqlite3='sqlite3 -header -column'
+alias man='export COLUMNS=$((COLUMNS - 7)); man'
 
 # ===== New aliases =====  
 
