@@ -2,14 +2,17 @@
 # Dense Roach, as in Git Crawler (yes, I know)
 
 FETCH=false
+COLOR=true
 
-while getopts "fh" opt; do
+while getopts "fhn" opt; do
     case $opt in
-        h) echo "Usage: dense_roach [-f]"
+        h) echo "Usage: dense_roach [-fn]"
            echo "Walks subdirectories to give a summary of the state of the repositories"
            echo "  -f does git fetch before building status"
+           echo "  -n removes colorization"
            exit 0;;
         f) FETCH=true;;
+        n) COLOR=false;;
         *) echo "invalid option '$opt'"
                 exit 1;;
         esac
@@ -29,7 +32,11 @@ function get_infos {
         flag=true
     fi
     if $flag; then
-        echo "$1: $ahead $behind $staged $unstaged $untracked"
+        if $COLOR; then
+            echo -e "\e[1m$1\e[m: \e[35m$ahead \e[36m$behind \e[32m$staged \e[33m$unstaged \e[31m$untracked\e[m"
+        else
+            echo "$1: $ahead $behind $staged $unstaged $untracked"
+        fi
     fi
     
 }
