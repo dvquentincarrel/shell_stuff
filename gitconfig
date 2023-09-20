@@ -13,7 +13,7 @@
 [difftool]
 	prompt = false
 [core]
-	editor = vim
+	editor = nvim
 	trustctime = false
 [commit]
     verbose = true
