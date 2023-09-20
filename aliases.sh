@@ -43,7 +43,8 @@ alias lg="ll -a --color=always | grep -i --color=never"
 alias functions="declare -F | cut -d' ' -f 3"
 alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
-alias fzd='cd $(find . -type d -name .git -prune -o -type d -print | fzf)'
+alias fzd='cd $(find . -type d -path "*/." -prune -o -type d -print | fzf)'
+alias fzda='cd $(find . -type d -name .git -prune -o -type d -print | fzf)'
 alias tvim='vim -c "setl buftype=nofile"'
 
 # ===== Git =====  
