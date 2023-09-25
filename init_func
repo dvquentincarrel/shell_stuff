@@ -233,3 +233,30 @@ function sync_hist {
     history -n
 }
 export -f sync_hist
+
+# Search for options in man pages
+function gman {
+    # TODO: just see about generating autocmpletion for it, pre-processing the man page to extract the options
+    case $# in
+    0)
+        return 1;;
+    1)
+        # Command to be given to less, as man's pager. Only displays lines matching the pattern
+        local command='+&^ *-(\w|-\w+)';;
+    *)
+        local matchedLines=$(man -P cat "$1" | grep -noP "^ *--?$2")
+        local matchesNum=$(wc -l <<< $matchedLines)
+        echo ${#matchedLines}
+        if [[ $matchesNum -eq 0 ]] || [[ ${#matchedLines} -eq 0 ]]; then
+            local command='+&^ *-(\w|-\w+)'
+        # Only a single line matched, just open at its position
+        elif [[ $matchesNum -eq 1 ]]; then
+            local lineNum=$(cut -d: -f1 <<< $matchedLines)
+            local command="+$lineNum"
+        else
+            local command="+&^ *--?$2"
+        fi;;
+    esac
+    man -P "less '$command'" "$1"
+}
+export -f gman
