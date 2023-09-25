@@ -257,6 +257,6 @@ function gman {
             local command="+&^ *--?$2"
         fi;;
     esac
-    man -P "less '$command'" "$1"
+    man -P "less -j1 '$command'" "$1"
 }
 export -f gman
