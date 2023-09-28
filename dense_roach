@@ -3,16 +3,19 @@
 
 FETCH=false
 COLOR=true
+PARALLEL=true
 
-while getopts "fhn" opt; do
+while getopts "fhnp" opt; do
     case $opt in
         h) echo "Usage: dense_roach [-fn]"
            echo "Walks subdirectories to give a summary of the state of the repositories"
            echo "  -f does git fetch before building status"
            echo "  -n removes colorization"
+           echo "  -p removes parallelization"
            exit 0;;
         f) FETCH=true;;
         n) COLOR=false;;
+        p) PARALLEL=false;;
         *) echo "invalid option '$opt'"
                 exit 1;;
         esac
@@ -23,8 +26,8 @@ function get_infos {
     status=$(git -C "$1" status)
     porcelain_status=$(git -C "$1" status --porcelain=1)
     flag=false
-    grep -q ahead <<< "$status" && ahead="AHEAD" && flag=true
-    grep -q behind <<< "$status" && behind="BEHIND" && flag=true
+    grep -q "ahead\|diverged" <<< "$status" && ahead="AHEAD" && flag=true
+    grep -q "behind\|diverged" <<< "$status" && behind="BEHIND" && flag=true
     untracked=$(grep -c '^??' <<< "$porcelain_status")
     unstaged=$(grep -c '^ .\|^MM' <<< "$porcelain_status")
     staged=$(grep -c '^. \|^MM' <<< "$porcelain_status")
@@ -37,8 +40,13 @@ function get_infos {
         else
             echo "$1: $ahead $behind $staged $unstaged $untracked"
         fi
+    else
+        if $COLOR; then
+            echo -e "\x1b[1m$1: \x1b[34mUp to date\x1b[m"
+        else
+            echo "$1: Up to date"
+        fi
     fi
-    
 }
 export -f get_infos
 
@@ -59,5 +67,9 @@ function check_dir {
 export -f check_dir
 
 
-#find * -type d -not -exec bash -c 'check_dir {}' ';' -prune -o -type d -exec bash -c 'get_infos {}' ';'
-find * -type d -not -exec bash -c "check_dir {} $FETCH" ';' -prune
+if $PARALLEL; then
+    content=$(find * -type d -prune)
+    parallel check_dir {1} $FETCH ::: $content
+else
+    find * -maxdepth 0 -type d -exec bash -c "check_dir {} $FETCH" ';'
+fi
