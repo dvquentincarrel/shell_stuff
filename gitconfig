@@ -39,7 +39,9 @@
     aad = "!g_aad() { git add $(git diff --name-only --diff-filter=A); }; g_add"
     unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
 [pull]
-	rebase = true
+    rebase = true
+[rebase]
+    autoStash = true
 [fetch]
     prune = true
 [log]
