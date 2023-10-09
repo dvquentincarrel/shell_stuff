@@ -263,7 +263,11 @@ function gman {
 export -f gman
 
 function fzd {
-    path=$(find . -type d -path "*/." -prune -o -type d -print | fzf)
+    if [[ $1 == '-a' ]]; then
+        path=$(find . -type d -name .git -prune -o -type d -print | fzf)
+    else
+        path=$(find . -type d -path '*/.*' -prune -o -type d -print | fzf)
+    fi
     if [[ -n $path ]]; then
         cd "$path"
     fi
