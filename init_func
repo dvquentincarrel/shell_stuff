@@ -261,3 +261,11 @@ function gman {
     man -P "less -j1 '$command'" "$1"
 }
 export -f gman
+
+function fzd {
+    path=$(find . -type d -path "*/." -prune -o -type d -print | fzf)
+    if [[ -n $path ]]; then
+        cd "$path"
+    fi
+}
+export -f fzd
