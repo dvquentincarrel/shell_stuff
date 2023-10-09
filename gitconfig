@@ -10,11 +10,17 @@
 	defaultBranch = master
 [diff]
 	tool = vimdiff
+    algorithm = histogram
 [difftool]
 	prompt = false
 [core]
 	editor = nvim
 	trustctime = false
+	pager = delta
+[delta]
+	line-numbers = true
+    true-color = always
+    line-numbers-zero-style = "#777777"
 [commit]
     verbose = true
 [merge]
@@ -38,6 +44,7 @@
     mad = "!g_madd() { git add $(git diff --name-only --diff-filter=M); }; g_madd"
     aad = "!g_aad() { git add $(git diff --name-only --diff-filter=A); }; g_add"
     unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
+    sdiff = "!git diff | delta -s"
 [pull]
     rebase = true
 [rebase]
