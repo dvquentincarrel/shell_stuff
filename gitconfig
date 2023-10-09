@@ -11,6 +11,7 @@
 [diff]
 	tool = vimdiff
     algorithm = histogram
+    colorMoved = default
 [difftool]
 	prompt = false
 [core]
@@ -21,6 +22,7 @@
 	line-numbers = true
     true-color = always
     line-numbers-zero-style = "#777777"
+    map-styles = "bold purple => syntax #500040, bold cyan => syntax #105050"
 [commit]
     verbose = true
 [merge]
@@ -53,8 +55,6 @@
 [log]
     abbrevCommit = true
     date = iso
-[diff]
-    colorMoved = no
 [status]
     relativePath = true
 # vim: ft=dosini
