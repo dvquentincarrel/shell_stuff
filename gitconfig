@@ -46,6 +46,7 @@
     mad = "!g_madd() { git add $(git diff --name-only --diff-filter=M); }; g_madd"
     unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
     sdiff = "!git diff | delta -s"
+    checkpoint = "!g_checkpoint() { git commit --allow-empty -m 'CHECKPOINT '\"$*\" && git reset HEAD~; }; g_checkpoint"
 [pull]
     rebase = true
 [rebase]
