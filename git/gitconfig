@@ -3,9 +3,7 @@
 	email = dvquentincarrel@gmail.com
 	signingkey = 1639450FB57FD4A37D8BEAC18C8E58608A04539A
 [includeIf "gitdir:~/git/"]
-    path = ~/.gitconfig-work
-[includeIf "gitdir:~/**/cours/"]
-    path = ~/.gitconfig-etu
+    path = ~/.config/git/config-work
 [init]
 	defaultBranch = master
 [diff]
@@ -17,6 +15,7 @@
 [core]
 	editor = nvim
 	trustctime = false
+	hooksPath = ~/opi_repo/hooks
 	pager = delta
 [delta]
 	line-numbers = true
@@ -30,6 +29,8 @@
 [mergetool.vimdiff]
 	layout = LOCAL,MERGED/REMOTE
 	trustExitCode = false
+[mergetool "nvimdiff"]
+    cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
 [alias]
 	root = rev-parse --show-toplevel
     unstage = restore --staged
