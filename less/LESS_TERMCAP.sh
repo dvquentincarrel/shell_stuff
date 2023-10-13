@@ -1,4 +1,3 @@
-#!/bin/bash
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
 export LESS_TERMCAP_md=$(tput bold; tput setaf 3) # yellow (bold) 
 export LESS_TERMCAP_me=$(tput sgr0)
