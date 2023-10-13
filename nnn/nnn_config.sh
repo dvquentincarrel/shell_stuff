@@ -1,4 +1,3 @@
-#!/bin/bash
 export NNN_OPTS="UdeTeA"
 # -U	: displays owner and group
 # -d 	: detailed mode
