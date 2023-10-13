@@ -44,6 +44,7 @@ alias functions="declare -F | cut -d' ' -f 3"
 alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
 alias tvim='vim -c "setl buftype=nofile"'
+alias alarm='mpv ~/opi/alarm.mp3'
 
 # ===== Git =====  
 
@@ -65,6 +66,9 @@ alias gpgs="gchp --skip"
 alias gct="git checkout"
 alias groot='cd $(git root)'
 alias gfh='git fetch'
+
+complete -W '$(git rev-parse 2>/dev/null && git branch --format "%(refname:short)")' gct
+complete -W '$(git rev-parse 2>/dev/null && git status --short | sed "s/  / /" | cut -d" " -f2 )' gadd
 
 # shells are preceeded by a hyphen if they're login shells
 if [[ -n "$ZSH_VERSION" ]]; then

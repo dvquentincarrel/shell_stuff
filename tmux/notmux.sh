@@ -1,4 +1,6 @@
 #!/bin/bash
+# Disables automatic connexion to tmux session. Either for a certain time, or as a toggle
+
 if [ "$1" = "-h" ]; then
     echo "Enables/Disables automatic connexion to the main tmux session"
     echo "If a number is provided as an arg, reverses the value after that many seconds"
