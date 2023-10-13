@@ -1,4 +1,3 @@
-#!/bin/bash
 # Absolute melting pot of functions and utilities
 
 function repeat {
@@ -261,15 +260,3 @@ function gman {
     man -P "less -j1 '$command'" "$1"
 }
 export -f gman
-
-function fzd {
-    if [[ $1 == '-a' ]]; then
-        path=$(find . -type d -name .git -prune -o -type d -print | fzf)
-    else
-        path=$(find . -type d -path '*/.*' -prune -o -type d -print | fzf)
-    fi
-    if [[ -n $path ]]; then
-        cd "$path"
-    fi
-}
-export -f fzd

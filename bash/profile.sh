@@ -1,4 +1,4 @@
-#!/bin/bash
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH=~/.local/bin:$PATH
 export MACHINE="unknown" # Default value
 # Makes an id out of subset of public ssh key

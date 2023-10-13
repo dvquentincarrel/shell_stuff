@@ -17,3 +17,4 @@ export LESSHISTFILE=/dev/null # Same thing for /bin/less
 export HSYNCW=true # push history lines (after each command)
 export HSYNCR=false # pull history lines (after each command)
 export TERM_ITALICS="true"
+export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
