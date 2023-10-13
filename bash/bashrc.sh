@@ -64,29 +64,7 @@ RCREAD=true
 # -c(ommandes) -f(iles)
 complete -cf sudo
 
-# Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
+complete -F _command wedit
+source composite_sh_setup
 
-shopt -s cdspell # Attempts correction on small cd typos
-shopt -s checkjobs # Warns about background jobs before exiting
-shopt -s checkwinsize # Updates size after each command
-shopt -s cmdhist # Attempts to save multi-line commands in same hist entry
-shopt -s dirspell # Attempts correction on small dirname typos during autocomplete
-shopt -s expand_aliases # Expands aliases (necessary for aliases)
-shopt -s extglob # Extended glob patterns, regex-y
-shopt -s globstar # Enables **
-shopt -s histappend # Appends to history instead of overwriting
-shopt -s lithist # Multiline delimiters is \n instead of ; in hist
-shopt -s nocaseglob # Case-insensitive pathname globbing
-shopt -u huponexit # Sends SIGHUP to all jobs on shell exit
-shopt -u xpg_echo # Allows echo to process things like \t, \n, ...
-
-source ~/.local/bin/sh_setup
 which qbl_init >/dev/null && source qbl_init
-
-# Tmux "integration"
-if which tmux &>/dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ]; then
-	source ~/.local/bin/auto_tmux
-fi
