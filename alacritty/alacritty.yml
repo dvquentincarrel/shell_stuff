@@ -1,6 +1,8 @@
 window:
     opacity: 0.85
     decorations: full
+    # Allow terminal applications to change Alacritty's window title.
+    dynamic_title: true
 
 key_bindings:
     - { key: Equals, mods: Control, action: ResetFontSize }
@@ -15,7 +17,6 @@ font:
 colors:
     primary:
         background: '0x272727'
-            #background: '0x2e3436'
         foreground: '0xd3d7cf'
     normal:
         black: '0x2e3436'
@@ -61,7 +62,7 @@ colors:
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-window:
+#window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. Both lines and columns
@@ -123,7 +124,7 @@ window:
   #title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
-  dynamic_title: true
+  #dynamic_title: true
 
   # Window class (Linux/BSD only):
   #class:
