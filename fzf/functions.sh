@@ -6,7 +6,7 @@ function fzd {
         path=$(find . -type d -path '*/.*' -prune -o -type d -print | fzf --preview='tree -C {}')
     fi
     if [[ -n $path ]]; then
-        cd "$path"
+        pushd "$path"
     fi
 }
 export -f fzd
