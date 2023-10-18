@@ -3,13 +3,13 @@
 	email = dvquentincarrel@gmail.com
 	signingkey = 1639450FB57FD4A37D8BEAC18C8E58608A04539A
 [includeIf "gitdir:~/git/"]
-    path = ~/.config/git/config-work
+	path = ~/.config/git/config-work
 [init]
 	defaultBranch = master
 [diff]
 	tool = vimdiff
-    algorithm = histogram
-    colorMoved = default
+	algorithm = histogram
+	colorMoved = default
 [difftool]
 	prompt = false
 [core]
@@ -19,44 +19,44 @@
 	pager = delta
 [delta]
 	line-numbers = true
-    true-color = always
-    line-numbers-zero-style = "#777777"
-    map-styles = "bold purple => syntax #500040, bold cyan => syntax #105050"
+	true-color = always
+	line-numbers-zero-style = "#777777"
+	map-styles = "bold purple => syntax #500040, bold cyan => syntax #105050"
 [commit]
-    verbose = true
+	verbose = true
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 [mergetool.vimdiff]
 	layout = LOCAL,MERGED/REMOTE
 	trustExitCode = false
 [mergetool "nvimdiff"]
-    cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
+	cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
 [alias]
 	root = rev-parse --show-toplevel
-    unstage = restore --staged
-    amend = commit --amend
-    denselog = log --pretty=format:'%C(auto)%h %G? %C(cyan)%as %C(blue)%an  %Creset%s %C(auto)%d' --graph
-    allog = log --all --graph --stat
-    patchlog = log -p --stat
-    upbase = "!upbase() { git rebase -i HEAD~$1; }; upbase"
-    updiff = "!updiff() { git diff HEAD~$1; }; updiff"
-    alias = "!git config --get-regexp '^alias.' | perl -pe 's/^alias.//;' -e 's/^(.*?) /\\e[1;33m\\1\\e[0m: /'"
-    github = "!git remote add origin git@github.com:${1:-dvquentincarrel}/$(basename $PWD).git; git push -u origin master"
-    clean-ignore = clean -dfX
-    hooks = "!find $(git root)/.git/hooks -type f ! -name '*.sample'"
-    mad = "!g_madd() { git add $(git diff --name-only --diff-filter=M); }; g_madd"
-    unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
-    sdiff = "!git diff | delta -s"
-    checkpoint = "!g_checkpoint() { git commit --allow-empty -m 'CHECKPOINT '\"$*\" && git reset HEAD~; }; g_checkpoint"
+	unstage = restore --staged
+	amend = commit --amend
+	denselog = log --pretty=format:'%C(auto)%h %G? %C(cyan)%as %C(blue)%an  %Creset%s %C(auto)%d' --graph
+	allog = log --all --graph --stat
+	patchlog = log -p --stat
+	upbase = "!upbase() { git rebase -i HEAD~$1; }; upbase"
+	updiff = "!updiff() { git diff HEAD~$1; }; updiff"
+	alias = "!git config --get-regexp '^alias.' | perl -pe 's/^alias.//;' -e 's/^(.*?) /\\e[1;33m\\1\\e[0m: /'"
+	github = "!git remote add origin git@github.com:${1:-dvquentincarrel}/$(basename $PWD).git; git push -u origin master"
+	clean-ignore = clean -dfX
+	hooks = "!find $(git root)/.git/hooks -type f ! -name '*.sample'"
+	mad = "!g_madd() { git add $(git diff --name-only --diff-filter=M); }; g_madd"
+	unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
+	sdiff = "!git diff | delta -s"
+	checkpoint = "!g_checkpoint() { git commit --allow-empty -m 'CHECKPOINT '\"$*\" && git reset HEAD~; }; g_checkpoint"
 [pull]
-    rebase = true
+	rebase = true
 [rebase]
-    autoStash = true
+	autoStash = true
 [fetch]
-    prune = true
+	prune = true
 [log]
-    abbrevCommit = true
-    date = iso
+	abbrevCommit = true
+	date = iso
 [status]
-    relativePath = true
+	relativePath = true
 # vim: ft=dosini
