@@ -7,15 +7,15 @@ build:
 	@mkdir -p $(bin_dir)
 	@mkdir -p $(conf_base)
 	@mkdir -p $(bash_setup_dir)
-	@make -kC alacritty
-	@make -kC bash
-	@make -kC fzf
-	@make -kC git
-	@make -kC i3
-	@make -kC less
-	@make -kC mpv
-	@make -kC nnn
-	@make -kC readline
-	@make -kC rg
-	@make -kC tmux
+	@${MAKE} -kC alacritty
+	@${MAKE} -kC bash
+	@${MAKE} -kC fzf
+	@${MAKE} -kC git
+	@${MAKE} -kC i3
+	@${MAKE} -kC less
+	@${MAKE} -kC mpv
+	@${MAKE} -kC nnn
+	@${MAKE} -kC readline
+	@${MAKE} -kC rg
+	@${MAKE} -kC tmux
 	@grep -Fq 'for file in `echo $(bash_setup_dir)/*`; do source $$file; done' ~/.bashrc || echo 'for file in `echo $(bash_setup_dir)/*`; do source $$file; done' >> ~/.bashrc
