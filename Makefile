@@ -1,6 +1,7 @@
 export bin_dir=$${HOME}/.local/bin
 export conf_base=$${HOME}/.config
 export bash_setup_dir=$${HOME}/.config/bash/setup
+export clobber?=i
 
 build:
 	@mkdir -p $(bin_dir)

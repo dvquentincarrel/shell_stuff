@@ -2,6 +2,6 @@ conf_dir=$(conf_base)/git
 
 install:
 	@mkdir -p $(conf_dir)
-	@ln -s -i $$PWD/gitconfig $(conf_dir)/config
-	@ln -s -i $$PWD/gitconfig-work $(conf_dir)/config-work
-	@ln -s -i $$PWD/gitignore $(conf_dir)/ignore
+	@ln -s -$(clobber) $$PWD/gitconfig $(conf_dir)/config
+	@ln -s -$(clobber) $$PWD/gitconfig-work $(conf_dir)/config-work
+	@ln -s -$(clobber) $$PWD/gitignore $(conf_dir)/ignore
