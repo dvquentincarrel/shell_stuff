@@ -1,4 +1,4 @@
-conf_dir=$$HOME/.config/git
+conf_dir=$(conf_base)/git
 
 install:
 	@mkdir -p $(conf_dir)

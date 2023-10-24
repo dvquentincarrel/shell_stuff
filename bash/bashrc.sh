@@ -67,4 +67,4 @@ RCREAD=true
 complete -cf sudo
 
 complete -F _command wedit
-source composite_sh_setup
+for file in `echo ${HOME}/.config/bash/setup/*`; do source $file; done

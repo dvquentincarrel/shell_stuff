@@ -1,9 +1,11 @@
-bin_dir=$$HOME/.local/bin
+export bin_dir=$${HOME}/.local/bin
+export conf_base=$${HOME}/.config
+export bash_setup_dir=$${HOME}/.config/bash/setup
 
 build:
 	@mkdir -p $(bin_dir)
-	@echo '#!/bin/bash' > composite_sh_setup.sh
-	@chmod +x composite_sh_setup.sh
+	@mkdir -p $(conf_base)
+	@mkdir -p $(bash_setup_dir)
 	@make -kC alacritty
 	@make -kC bash
 	@make -kC fzf
@@ -15,5 +17,4 @@ build:
 	@make -kC readline
 	@make -kC rg
 	@make -kC tmux
-	@ln -s -i $$PWD/composite_sh_setup.sh $(bin_dir)/composite_sh_setup
-	@grep -q 'source composite_sh_setup' ~/.bashrc || echo 'source composite_sh_setup' >> ~/.bashrc
+	@grep -q 'for file in `echo $(bash_setup_dir)/*`; do source $$file; done' ~/.bashrc || echo 'for file in `echo $(bash_setup_dir)/*`; do source $$file; done' >> ~/.bashrc

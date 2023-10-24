@@ -1,4 +1,4 @@
-conf_dir=$$HOME/.config/alacritty
+conf_dir=$(conf_base)/alacritty
 
 install:
 	@mkdir -p $(conf_dir)

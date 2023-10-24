@@ -1,5 +1,5 @@
-conf_dir=$$HOME/.config/mpv
-scripts_dir=$$HOME/.config/mpv/scripts
+conf_dir=$(conf_base)/mpv
+scripts_dir=$(conf_dir)/scripts
 
 install:
 	@mkdir -p $(scripts_dir)
