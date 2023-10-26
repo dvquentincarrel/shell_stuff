@@ -1,4 +1,4 @@
-export RIPGREP_CONFIG_PATH=/home/pepito/.config/ripgrep/ripgrep.rc
+export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgrep.rc
 
 function _print_grep_context {
 	fileField=${2:-1}
