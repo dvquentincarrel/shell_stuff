@@ -264,12 +264,14 @@ bindsym --release Mod4+Shift+s exec ptrscr "select"
 for_window [class="Pavucontrol"] floating enable
  
 bindsym $mod+x exec alacritty
+bindsym $mod+Return exec "alacritty -e bash -c 'export NOTMUX=true; exec bash'"
 exec systemctl start httpd.service
-default_border normal 5
+default_border normal 2
 # 	<class>				<border>	<background>	<text>		<indicator>		<child>
 client.focused 			#ffbb22 	#ff9900 		#000000 	#ff9900 		#ff9900
 client.unfocused		#555555 	#222222 		#999999 	#555555 		#442211
 client.focused_inactive	#555555 	#111111 		#ffbb22 	#999999 		#664400
+hide_edge_borders smart
 
 # [workspace  screen] mapping
 workspace 1 output HDMI-0
