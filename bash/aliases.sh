@@ -33,7 +33,7 @@ alias man='export COLUMNS=$((COLUMNS - 7)); man'
 alias win_network='sudo virsh net-start default'
 alias monitor-swap='xrandr --output HDMI-0 --primary --left-of DP-1'
 alias clip='xclip -sel clip'
-alias reload='source ~/.local/bin/composite_sh_setup'
+alias reload='for file in `echo ${HOME}/.config/bash/setup/*`; do source $file; done'
 alias xv='xvtouch'
 alias pcl='echo -n $PWD | clip; echo "$PWD sent to clipboard"'
 alias rp="repeat"
