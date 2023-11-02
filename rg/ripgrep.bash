@@ -26,7 +26,7 @@ function _vimopen_grep_output {
 export -f _vimopen_grep_output
 
 function fzr {
-	rg "$@" --color=always | fzf --height=100% \
+	rg "$@" --color=always | fzf -0 --height=100% \
 		--preview="_print_grep_context {}" \
 		--preview-window=top,50% \
 		--bind='enter:execute(_vimopen_grep_output {} | xargs -o vim)'
