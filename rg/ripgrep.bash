@@ -25,14 +25,14 @@ function _vimopen_grep_output {
 }
 export -f _vimopen_grep_output
 
-function fzr {
+function frg {
 	rg "$@" --color=always | fzf -0 --height=100% \
 		--preview="_print_grep_context {}" \
 		--preview-window=top,50% \
-		--bind='enter:execute(_vimopen_grep_output {} | xargs -o vim)'
-	if [[ $? -eq 1 ]]; then 
+		--bind='enter:execute(_vimopen_grep_output {} | xargs -o $EDITOR)'
+	if [[ $? -eq 1 ]]; then
 		echo -e "\x1b[31mNo match found for \x1b[0m'$@'"
 		return 1
 	fi
 }
-export -f fzr
+export -f frg
