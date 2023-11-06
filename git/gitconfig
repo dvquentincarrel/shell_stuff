@@ -48,7 +48,6 @@
 	unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
 	sdiff = "-c delta.side-by-side=true diff"
 	checkpoint = "!g_checkpoint() { git commit --allow-empty -m 'CHECKPOINT '\"$*\" && git reset HEAD~; }; g_checkpoint"
-	fb = "!git checkout $(git branch --all --format='%(refname:short)'| fzf --preview-window='right:80%' --preview='git denselog --color=always {}')"
 [pull]
 	rebase = true
 [rebase]
