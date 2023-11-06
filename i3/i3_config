@@ -298,3 +298,7 @@ for_window [class="feh" title="QWERTY_LAYOUT"] floating enable
 # i3lock
 bindsym Mod1+F2 exec i3lock -B 5
 bindsym Mod1+F4 exec i3lock -c 000000
+
+# Gaps
+gaps inner 10px
+smart_gaps on
