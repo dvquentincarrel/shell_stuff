@@ -9,6 +9,7 @@ build:
 	@mkdir -p $(bash_setup_dir)
 	@${MAKE} -kC alacritty
 	@${MAKE} -kC bash
+	@${MAKE} -kC bat
 	@${MAKE} -kC fzf
 	@${MAKE} -kC git
 	@${MAKE} -kC i3
