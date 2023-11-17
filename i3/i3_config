@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8px
+font pango:DejaVu Sans Mono 9px
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -164,7 +164,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Shift+x move scratchpad
-bindsym $mod+Shift+z scratchpad show
+bindsym $mod+Shift+z [class="^[^H][^I][^D]"]scratchpad show
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -220,7 +220,7 @@ bindsym $mod+r mode "resize"
 bar {
 	position top
 	status_command i3status
-	font pango:monospace 12px
+	font pango:monospace 13px
 	separator_symbol " -|- "
 	tray_output primary
 	#  DP-1
@@ -231,14 +231,15 @@ bar {
 	}
 }
 
-# volume mixer in tray at first startup
+# Startup
+#	volume mixer in tray at first startup
 exec --no-startup-id dbus-launch pasystray
-
-# start picom as deamon
+#	start picom as deamon
 exec --no-startup-id tpicom
-
-# wallpaper script
+#	wallpaper script
 exec --no-startup-id dyn_papes 30
+#	alacritty daemon
+exec --no-startup-id alacritty --hold --class HIDEME,HIDEME -e printf 'daemon window'
 
 # Application name centered
 title_align center
@@ -262,9 +263,11 @@ bindsym --release Mod4+Shift+s exec ptrscr "select"
 
 # Auto floating
 for_window [class="Pavucontrol"] floating enable
+for_window [class="FLOATING"] floating enable
+for_window [class="^HIDEME$"] move scratchpad
  
-bindsym $mod+x exec alacritty
-bindsym $mod+Return exec "alacritty -e bash -c 'export NOTMUX=true; exec bash'"
+bindsym $mod+x exec alacritty msg create-window
+bindsym $mod+Return exec "alacritty msg create-window -e bash -c 'export NOTMUX=true; exec bash'" 
 exec systemctl start httpd.service
 default_border normal 2
 # 	<class>				<border>	<background>	<text>		<indicator>		<child>
@@ -292,8 +295,6 @@ workspace_layout stacking
 
 # Keyboard layout
 bindsym Mod4+Mod1+k exec locale_toggle
-bindsym Mod4+Ctrl+k exec qwerty_popup
-for_window [class="feh" title="QWERTY_LAYOUT"] floating enable
 
 # i3lock
 bindsym Mod1+F2 exec i3lock -B 5
