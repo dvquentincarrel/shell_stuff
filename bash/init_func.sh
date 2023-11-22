@@ -217,14 +217,15 @@ export -f fcl
 
 # Does something at the specified time, precise up to the second
 function doat { 
-    if [[ $1 == '-h' ]]; then
-        echo 'Usage: doat HH:MM:SS "COMMAND"'
+    if [[ $1 == '-h' ]] || [[ $# -lt 2 ]]; then
+        echo 'Usage: doat HH:MM:SS COMMAND...'
         return
     fi
     while [[ $(date +%R:%S) < "$1" ]]; do
         sleep 1;
     done
-    eval "$2"
+	shift
+    "$@"
 }
 export -f doat
 
