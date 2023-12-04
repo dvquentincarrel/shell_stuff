@@ -1,0 +1,9 @@
+#line-edit
+[5~ up
+[6~ down
+
+[1;5D word-left
+[1;5C word-right
+[3;5~ word-delete
+^W word-backspace
+^K kill-line
