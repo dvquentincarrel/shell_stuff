@@ -1,3 +1,7 @@
+#command
+/ forw-search ^W
+? back-search ^W
+
 #line-edit
 [5~ up
 [6~ down
