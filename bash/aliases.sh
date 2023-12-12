@@ -67,7 +67,7 @@ alias gct="git checkout"
 alias groot='cd $(git root)'
 alias gfh='git fetch'
 
-complete -W '$(git rev-parse 2>/dev/null && git branch --format "%(refname:short)")' gct
+complete -W '$(git rev-parse 2>/dev/null && git branch --format "%(refname:short)" | grep -v "HEAD detached at"; git tag --list)' gct
 complete -W '$(git rev-parse 2>/dev/null && git status --short | sed "s/  / /" | cut -d" " -f2 )' gadd
 
 # shells are preceeded by a hyphen if they're login shells
