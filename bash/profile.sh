@@ -25,6 +25,6 @@ export FOTM_TERM="alacritty"
 export WINIT_X11_SCALE_FACTOR=1
 
 xset r rate 250 50 # delay, rate
-setxkbmap fr
+setxkbmap leyaourt || setxkbmap 'us(altrg-intl)' || setxkbmap us
 #comfy
 #redshift
