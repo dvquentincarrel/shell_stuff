@@ -4,7 +4,6 @@ set meta-flag on
 set input-meta on
 set convert-meta off
 set output-meta on
-set editing-mode vi
 $if mode=emacs
 # for linux console and RH/Debian xterm
 "\e[1~": beginning-of-line
