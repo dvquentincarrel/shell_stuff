@@ -211,7 +211,26 @@ complete -A alias galias
 
 # File CLip - puts absolute path of file passed as arg in clipboard
 function fcl {
-    [[ $# -gt 0 ]] && readlink -nf "$1" | tee >(xclip -sel clip) >(sed -e 's/$/ send to clipboard\n/') >/dev/null
+    while getopts "hu" opt; do
+        case $opt in
+            h)  echo "Usage: fcl [-u] FILE"
+                echo "Puts absolute path to file (or url with -u) in clipboard"
+                return 0;;
+            u)  local PREFIX="file://";;
+            *)  echo "invalid option '$opt'"
+                return 1;;
+            esac
+        done
+        shift $((OPTIND -1))
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: fcl [-u] FILE"; return 1
+    fi
+
+    echo ${PREFIX}$(readlink -nf "$1") | \
+    tee \
+        >(xclip -sel clip) \
+        >(sed -e 's/^/\x1b[96m/' -e 's/$/\x1b[m sent to clipboard/') \
+        >/dev/null
 }
 export -f fcl
 
