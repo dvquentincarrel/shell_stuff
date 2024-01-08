@@ -80,9 +80,3 @@ else
 	echo $msg
 	alias reload_all='echo $msg'
 fi
-
-if [ "$MACHINE" = "local" ]; then
-    source local_aliases.sh
-elif [ "$MACHINE" = "opi" ]; then
-    source opi_aliases.sh
-fi

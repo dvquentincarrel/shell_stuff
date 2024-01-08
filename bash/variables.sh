@@ -1,10 +1,5 @@
 export conf=~/config/
 export bin=~/bin/
-if [ "$MACHINE" = "local" ]; then
-    source local_variables.sh
-elif [ "$MACHINE" = "opi" ]; then
-    source opi_variables.sh
-fi
 
 export HISTCONTROL="ignoreboth" # If starting with a space, if same command as previously
 export HISTSIZE=5000000

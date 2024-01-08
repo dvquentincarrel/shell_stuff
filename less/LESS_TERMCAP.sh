@@ -12,12 +12,9 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
-if [[ "$MACHINE" = "local" ]]; then
-    # Made for : less 608 (PCRE2 regular expressions)
-    export LESS='-R -j5 -#5 -i -J -N -M --incsearch -S --line-num-width 4 -z-3 -g'
-elif [[ "$MACHINE" = "opi" ]]; then
-    export LESS='-R -j5 -#5 -i -J -N -M -S -z-3 -g -a'
-fi
+# Made for : less 608 (PCRE2 regular expressions)
+export LESS='-R -j1 -#5 -i -J -N -M --incsearch -S --line-num-width 4 -z-3 -g'
+
 # -R: ansi color chars
 # -j5: 5 lines around jump target on search
 # -#5: 5 chars when horizontal scroll
