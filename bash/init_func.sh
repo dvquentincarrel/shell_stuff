@@ -228,8 +228,8 @@ function fcl {
 
     echo ${PREFIX}$(readlink -nf "$1") | \
     tee \
-        >(xclip -sel clip) \
-        >(sed -e 's/^/\x1b[96m/' -e 's/$/\x1b[m sent to clipboard/') \
+        >(tr -d '\n' | xclip -sel clip) \
+        >(sed -e 's/^/\x1b[1;96m/' -e 's/$/\x1b[m sent to clipboard/') \
         >/dev/null
 }
 export -f fcl
