@@ -281,4 +281,37 @@ function gman {
 }
 export -f gman
 
+# Reload some of all or the bash config
+function reload {
+    local help_msg opt OPTIND RELOAD_ALL=false VERBOSE=false
+    read -d '' help_msg <<-"EOF"
+	\\x1b[1mUsage\\x1b[m: reload [OPTION]
+	Reloads the bash config setup (only $XDG_CONFIG_HOME/bash/setup/* by default)
+	  -h    Displays this message
+	  -a    Resources bashrc
+	  -v    Verbose
+	EOF
+    while getopts "hav" opt; do
+        case $opt in
+            h)  echo -e "$help_msg";;
+            a)  RELOAD_ALL=true;;
+            v)  VERBOSE=true;;
+            *)  echo "invalid option '$opt'"
+                return 1;;
+            esac
+        done
+        shift $((OPTIND -1))
+
+    if $RELOAD_ALL; then
+        source "$HOME/.bashrc"
+        return 0
+    fi
+
+    for file in $(echo $XDG_CONFIG_HOME/bash/setup/*); do
+        $VERBOSE && echo "Sourcing $file"
+        source $file
+    done
+}
+export -f reload
+
 # vim: ft=bash
