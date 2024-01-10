@@ -1,9 +1,9 @@
 export FZF_DEFAULT_OPTS='
 --height 50%
---bind "ctrl-v:execute($EDITOR {})"
+--bind "ctrl-e:execute($EDITOR {})"
 --bind "ctrl-d:execute(dragon {+})"
---bind "ctrl-e:preview-down"
---bind "ctrl-y:preview-up"
+--bind "alt-down:preview-down"
+--bind "alt-up:preview-up"
 --bind "ctrl-p:toggle-preview"
 --ansi
 --preview="fzf_preview.bash {}"
