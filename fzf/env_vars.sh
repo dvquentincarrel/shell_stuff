@@ -4,9 +4,9 @@ export FZF_DEFAULT_OPTS='
 --bind "ctrl-d:execute(dragon {+})"
 --bind "ctrl-e:preview-down"
 --bind "ctrl-y:preview-up"
---bind "ctrl-/:change-preview-window(hidden|)"
+--bind "ctrl-p:toggle-preview"
 --ansi
---preview="$(which bat batcat false 2>/dev/null | head -n1) -p -r :50 --color=always {} 2>/dev/null || head -n 50 {} 2>/dev/null"
+--preview="fzf_preview.bash {}"
 --multi
 --reverse
 --color "hl:#FFAA00,hl+:#FFAA00"
