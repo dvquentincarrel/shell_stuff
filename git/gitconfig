@@ -49,6 +49,7 @@
 	sdiff = "-c delta.side-by-side=true diff"
 	checkpoint = "!g_checkpoint() { git commit --allow-empty -m 'CHECKPOINT '\"$*\" && git reset HEAD~; }; g_checkpoint"
     seed = "!git log --graph --all --ancestry-path $(_git_seed)"
+    gwr = "git worktree remove"
 [pull]
 	rebase = true
 [rebase]
