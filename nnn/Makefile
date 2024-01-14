@@ -1,3 +1,3 @@
 build:
-	-@ln -s -$(clobber) $$PWD/nnn_config.sh $(bash_setup_dir)/009_nnn_config.sh
+	-@ln -Ts -$(clobber) $$PWD/nnn_config.sh $(bash_setup_dir)/009_nnn_config.sh
 
