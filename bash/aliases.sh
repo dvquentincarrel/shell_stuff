@@ -43,6 +43,7 @@ alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
 alias tvim='vim -c "setl buftype=nofile"'
 alias alarm='mpv ~/opi/alarm.mp3'
+alias xop='xdg-open'
 
 # ===== Git =====  
 
