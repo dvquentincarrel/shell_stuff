@@ -13,3 +13,8 @@ export HSYNCW=true # push history lines (after each command)
 export HSYNCR=false # pull history lines (after each command)
 export TERM_ITALICS="true"
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
+if [[ -n $nvp ]]; then
+    export MANPAGER="nvim +Man!"
+elif [[ -n $vp ]]; then
+    export MANPAGER="vim +MANPAGER --not-a-term -"
+fi
