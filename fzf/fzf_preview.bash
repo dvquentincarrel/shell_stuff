@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ -f "$1" ]]; then
-    batex=$(which bat batcat | head -n 1)
+    batex=$(which bat batcat 2>/dev/null | head -n 1)
     if [[ -n "$batex" ]]; then
         $batex -p -r :50 --color=always "$1"
     else
