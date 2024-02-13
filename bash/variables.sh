@@ -1,6 +1,7 @@
 export conf=~/config/
 export bin=~/bin/
 
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export HISTCONTROL="ignoreboth" # If starting with a space, if same command as previously
 export HISTSIZE=5000000
 export PAGER='less -S'
