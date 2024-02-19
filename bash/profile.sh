@@ -8,7 +8,6 @@ if echo "$id" | grep -qi manjaro; then
     export QBL_ASYNC=false
     xrandr --output HDMI-0 --primary --left-of DP-1
 elif echo "$id" | grep -qi ubuntu; then
-    export PATH=/home/quentin/opi_repo2:$PATH
     xrandr --output eDP-1 --primary
     xrandr --output HDMI-1 --left-of eDP-1
     xrandr --auto
