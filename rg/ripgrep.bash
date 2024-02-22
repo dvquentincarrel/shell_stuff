@@ -35,7 +35,7 @@ export -f _vimopen_grep_output
 function frg {
     rg "$@" --color=always | fzf -0 -d':' --height=100% \
         --preview="_print_grep_context {1} {2}" \
-        --preview-window=top,50%,+{2}/2 \
+        --preview-window=top,50%,+{2}/2,wrap \
         --bind='enter:execute(_vimopen_grep_output {+1..2})'
     if [[ $? -eq 1 ]]; then
         echo -e "\x1b[31mNo match found for \x1b[0m'$@'"
