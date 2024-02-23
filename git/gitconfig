@@ -2,7 +2,7 @@
 	name = dvquentincarrel
 	email = dvquentincarrel@gmail.com
 	signingkey = 1639450FB57FD4A37D8BEAC18C8E58608A04539A
-[includeIf "gitdir:~/git/"]
+[includeIf "hasconfig:remote.*.url:git@git.objectif-pi.com:*/**"]
 	path = ~/.config/git/config-work
 [init]
 	defaultBranch = master
@@ -15,8 +15,9 @@
 [core]
 	editor = nvim
 	trustctime = false
-	hooksPath = ~/opi_repo/hooks
 	pager = delta
+[rerere]
+    enabled = true
 [delta]
 	line-numbers = true
 	true-color = always
