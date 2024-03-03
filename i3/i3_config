@@ -264,8 +264,9 @@ bindsym --release Mod4+Shift+s exec ptrscr "select"
 # Auto floating
 for_window [class="Pavucontrol"] floating enable
 for_window [class="FLOATING"] floating enable
+for_window [class="^steam$" title="^[^S][^t]"] floating enable
 for_window [class="^HIDEME$"] move scratchpad
- 
+
 bindsym $mod+x exec alacritty msg create-window
 bindsym $mod+Return exec "alacritty msg create-window -e bash -c 'export NOTMUX=true; exec bash'" 
 exec systemctl start httpd.service
