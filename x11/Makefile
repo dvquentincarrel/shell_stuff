@@ -1,6 +1,7 @@
 install:
 	-ln -Ts $(PWD)/xinit.sh $(HOME)/.xinitrc
 	-ln -Ts $(PWD)/xinit.sh $(HOME)/.xprofile
+	which lightdm >/dev/null && make install-lightdm || echo "Lightdm not found, skipping"
 
 install-lightdm:
 	echo "Adding the lightdm script to properly order screens..."
