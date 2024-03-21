@@ -257,9 +257,9 @@ bindcode $mod+51 exec app_vol -3%
 #bindsym Print exec gnome-screenshot -i
 
 # Screenshotting with scrot
-bindsym Mod1+Sys_Req exec ptrscr "window"
-bindsym Mod4+Print exec ptrscr "save"
-bindsym --release Mod4+Shift+s exec ptrscr "select"
+bindsym Mod1+Sys_Req exec wrop "window"
+bindsym Mod4+Print exec wrop "save"
+bindsym --release Mod4+Shift+s exec wrop "select"
 
 # Auto floating
 for_window [class="Pavucontrol"] floating enable
