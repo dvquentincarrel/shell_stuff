@@ -7,3 +7,4 @@
 	ln -Ts -$(clobber) $$PWD/dunstrc $(conf_base)/dunst/dunstrc
 	ln -Ts -$(clobber) $$PWD/picom.conf $(conf_base)/picom.conf
 	ln -Ts -$(clobber) $$PWD/tpicom.sh $(conf_base)/tpicom
+	ln -Ts -$(clobber) $$PWD/wrop.sh $(bin_dir)/wrop
