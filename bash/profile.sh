@@ -1,6 +1,6 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
-export PATH=$PATH:~/.local/bin
+export PATH=$HOME/.local/bin:$PATH
 export PC_ID=$(uname -a)
 
 if  grep -qi manjaro <<< "$PC_ID"; then
