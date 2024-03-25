@@ -7,6 +7,7 @@ elif  grep -qi manjaro <<< "$PC_ID"; then
 fi
 
 xset r rate 250 50 # delay, rate
+xset s off -dpms # Disable dpms, prevent screen from blanking
 setxkbmap leyaourt || setxkbmap 'us(altrg-intl)' || setxkbmap us
 export WINIT_X11_SCALE_FACTOR=1 # Fixes issues with scaling on some software (Alacritty, Zoom, ...)
 
