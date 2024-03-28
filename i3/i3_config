@@ -248,8 +248,8 @@ title_align center
 focus_follows_mouse no
 
 # Sound control
-bindcode $mod+Shift+35 exec i3_vol_ctrl 3%+
-bindcode $mod+Shift+51 exec i3_vol_ctrl 3%-
+bindcode $mod+Shift+35 exec amixer -D pulse set Master 3%+ 
+bindcode $mod+Shift+51 exec amixer -D pulse set Master 3%-
 bindcode $mod+35 exec app_vol +3%
 bindcode $mod+51 exec app_vol -3%
 
