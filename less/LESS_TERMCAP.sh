@@ -13,7 +13,7 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
 # Made for : less 608 (PCRE2 regular expressions)
-export LESS='-R -j1 -#5 -i -J -N -M --incsearch -S --line-num-width 4 -z-3 -g'
+export LESS='-R -j1 -#5 -i -J -N -M --incsearch -S --line-num-width 6 -z-3 -g'
 
 # -R: ansi color chars
 # -j5: 5 lines around jump target on search
