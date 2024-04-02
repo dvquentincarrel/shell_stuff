@@ -3,7 +3,7 @@
 	email = dvquentincarrel@gmail.com
 	signingkey = 1639450FB57FD4A37D8BEAC18C8E58608A04539A
 [includeIf "hasconfig:remote.*.url:git@git.objectif-pi.com:*/**"]
-	path = ~/.config/git/config-work
+	path = ~/.config/git/gitconfig-work
 [init]
 	defaultBranch = master
 [diff]
@@ -62,4 +62,6 @@
 	date = iso
 [status]
 	relativePath = true
+[push]
+    default = upstream
 # vim: ft=dosini
