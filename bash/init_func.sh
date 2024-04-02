@@ -139,13 +139,13 @@ colors() {
 			fgc=${fgc#37} # white
 			bgc=${bgc#40} # black
 
-			vals="${fgc:+$fgc;}${bgc}"
+			vals="${fgc:+$fgc};${bgc}"
 			vals=${vals%%;}
 
 			seq0="${vals:+\e[${vals}m}"
 			printf "  %-9s" "${seq0:-(default)}"
 			printf " ${seq0}TEXT\e[m"
-			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
+			printf " \e[${vals:+${vals+$vals}};1mBOLD\e[m"
 		done
 		echo; echo
 	done
