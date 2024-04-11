@@ -51,6 +51,7 @@
 	checkpoint = "!g_checkpoint() { git commit --allow-empty -m 'CHECKPOINT '\"$*\" && git reset HEAD~; }; g_checkpoint"
     seed = "!git log --graph --all --ancestry-path $(_git_seed)"
     gwr = "git worktree remove"
+    retime = "!g_retime() { export GIT_AUTHOR_DATE=\"$1\"; export GIT_COMMITTER_DATE=\"$1\"; git commit --amend --reset-author --no-edit; }; g_retime"
 [pull]
 	rebase = true
 [rebase]
