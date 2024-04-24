@@ -21,6 +21,9 @@
 [delta]
 	line-numbers = true
 	true-color = always
+    plus-style = "syntax #003500"
+    plus-emph-style = "bold syntax #005D00"
+    minus-emph-style = "bold syntax #800000"
 	line-numbers-zero-style = "#777777"
 	map-styles = "bold purple => syntax #500040, bold cyan => syntax #105050"
 [commit]
