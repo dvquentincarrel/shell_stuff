@@ -19,6 +19,9 @@ $if mode=emacs
 "\e\e[D": backward-word
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+# HALLELUJAH
+"\e[1;6C": vi-fWord
+"\e[1;6D": vi-bWord
 # for rxvt
 "\e[8~": end-of-line
 # for non RH/Debian xterm, can't hurt for RH/DEbian xterm
