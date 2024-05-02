@@ -1,0 +1,7 @@
+gui:
+  border: double
+git:
+  branchLogCmd: git denselog {{branchName}}
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
