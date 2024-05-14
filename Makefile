@@ -12,9 +12,10 @@ targets = alacritty bash bat fzf git i3 less mpv nnn readline rg tmux x11
 $(targets):
 	${MAKE} -kC $@
 
-.SILENT check:
+.SILENT: check
+check:
 	echo "Dependencies check:"
-	$(foreach var,$(dependencies),output=$$(which $(var) >/dev/null && echo -n '\e[32mOK' || echo '\e[31mnot found'); echo -e "\t- $(var) $$output\e[m"; )
+	$(foreach var,$(dependencies),output=$$(which $(var) >/dev/null && echo -n '\e[32mOK' || echo '\e[31mnot found'); echo "\t- $(var) $$output\e[m"; )
 
 .PHONY: setup_dirs
 setup_dirs: $(bin_dir) $(conf_base) $(bash_setup_dir)
