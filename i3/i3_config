@@ -264,6 +264,7 @@ bindsym --release Mod4+Shift+s exec wrop "select"
 # Auto floating
 for_window [class="Pavucontrol"] floating enable
 for_window [class="FLOATING"] floating enable
+for_window [class="Tk"] floating enable
 for_window [class="^steam$" title="^[^S][^t]"] floating enable
 for_window [class="^HIDEME$"] move scratchpad
 
@@ -298,8 +299,8 @@ workspace_layout stacking
 bindsym Mod4+Mod1+k exec locale_toggle
 
 # i3lock
-bindsym Mod1+F2 exec "date +%H:%M:%S >> /tmp/locklog; pgrep picom && i3lock -c 00000000 || i3lock -B 5"
-bindsym Mod1+F4 exec i3lock -c 000000
+bindsym Mod1+F2 exec lockscreen
+bindsym Mod1+F4 exec lockscreen
 
 # Gaps
 gaps inner 10px
