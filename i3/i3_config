@@ -298,7 +298,7 @@ workspace_layout stacking
 bindsym Mod4+Mod1+k exec locale_toggle
 
 # i3lock
-bindsym Mod1+F2 exec "date +%H:%M:%S >> /tmp/locklog; i3lock -B 5"
+bindsym Mod1+F2 exec "date +%H:%M:%S >> /tmp/locklog; pgrep picom && i3lock -c 00000000 || i3lock -B 5"
 bindsym Mod1+F4 exec i3lock -c 000000
 
 # Gaps
