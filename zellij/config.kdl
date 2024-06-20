@@ -1,0 +1,29 @@
+session_serialization false
+keybinds {
+    shared_except "tmux" {
+        bind "Ctrl q" { SwitchToMode "Tmux"; }
+        unbind "Ctrl b"
+    }
+    shared_except "locked" {
+        bind "Ctrl q" { SwitchToMode "Tmux"; }
+        unbind "Ctrl b" "Ctrl p" "Ctrl t" "Ctrl n" "Ctrl s" "Ctrl o" "Ctrl h" "Ctrl g"
+    }
+    tmux {
+        unbind "d" "["
+        bind "v" { SwitchToMode "Scroll"; }
+        bind "Ctrl q" { Write 17; SwitchToMode "Normal"; }
+        bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+        bind "c" { NewTab; SwitchToMode "Normal"; }
+        bind "Space" { NextSwapLayout; }
+        bind "x" { CloseFocus; SwitchToMode "Normal"; }
+
+        bind "F" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "p" { SwitchToMode "Pane"; }
+        bind "t" { SwitchToMode "Tab"; }
+        bind "n" { SwitchToMode "Resize"; }
+        bind "h" { SwitchToMode "Move"; }
+        bind "o" "w" { SwitchToMode "Session"; }
+    }
+}
