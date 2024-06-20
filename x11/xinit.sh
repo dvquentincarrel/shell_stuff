@@ -1,8 +1,7 @@
-#!/bin/bash
-source ~/.profile
-if  grep -qi manjaro <<< "$PC_ID"; then
+#!/bin/sh
+if uname -a | grep -qi manjaro; then
     xrandr --output HDMI-0 --primary --left-of DP-1
-elif  grep -qi manjaro <<< "$PC_ID"; then
+elif uname -a | grep -qvi manjaro; then
     xrandr --output HDMI-1 --left-of eDP-1 --primary
 fi
 
@@ -11,4 +10,4 @@ xset s off -dpms # Disable dpms, prevent screen from blanking
 setxkbmap leyaourt || setxkbmap 'us(altrg-intl)' || setxkbmap us
 export WINIT_X11_SCALE_FACTOR=1 # Fixes issues with scaling on some software (Alacritty, Zoom, ...)
 
-exec i3 
+exec i3

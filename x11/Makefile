@@ -1,6 +1,7 @@
 install:
 	-ln -Ts $(PWD)/xinit.sh $(HOME)/.xinitrc
-	-ln -Ts $(PWD)/xinit.sh $(HOME)/.xprofile
+	-ln -Ts $(PWD)/xinit.sh $(HOME)/.xsession
+	-ln -Ts $(PWD)/xprofile.sh $(HOME)/.xprofile
 	which lightdm >/dev/null && make install-lightdm || echo "Lightdm not found, skipping"
 
 install-lightdm:
