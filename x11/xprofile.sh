@@ -2,9 +2,10 @@
 
 # Sourced by lightdm before .xsession
 
-source "$HOME/.profile"
+if [ -f "$HOME/.profile" ]; then
+    source "$HOME/.profile"
+fi
 
-setxkbmap leyaourt || setxkbmap 'us(altrg-intl)' || setxkbmap us
 export WINIT_X11_SCALE_FACTOR=1 # Fixes issues with scaling on some software (Alacritty, Zoom, ...)
 
 export XDG_DATA_DIRS=${XDG_DATA_DIRS:-"/usr/local/share:/usr/share"}
