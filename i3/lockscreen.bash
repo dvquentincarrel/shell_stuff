@@ -1,6 +1,8 @@
 #!/bin/bash
 logger "Lock at $(date +'%H:%M:%S %d-%m-%Y')"
+killall -SIGUSR1 dunst # pause notifications
 i3lock \
+    --nofork \
     --ignore-empty-password \
     --show-failed-attempts \
     $(pgrep picom && echo '--color 00000000' || echo '--blur 5') \
@@ -15,4 +17,4 @@ i3lock \
     --modif-color FFFFFF \
     --line-uses-inside \
     --wrong-text '' \
-    --noinput-text ''
+    --noinput-text '' && killall -SIGUSR2 dunst # resume
