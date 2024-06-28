@@ -5,6 +5,11 @@ function _print_grep_context {
     file="$1"
     line_num="$2"
     total_lines=$(wc -l "$1" | cut -d' ' -f1)
+    if ((total_lines > 5000)); then
+        awk "NR==$line_num"' {print "\033[7m" $0 "\033[m"; next} {print $0}' "$file"
+        return 0
+    fi
+
     offscreen_offsets=$((FZF_PREVIEW_LINES * 3))
 
     # Truncates output, can save a lot of time on big files. Lower bound bottoms
@@ -15,7 +20,6 @@ function _print_grep_context {
     upper_bound=$((upper_bound < total_lines ? upper_bound : total_lines))
 
     # TODO: caching
-
     printf "%0.s\n" $(seq $lower_bound) # Ensures coherent scroll offsets
     bat -n --color always "$file" -r $lower_bound:$upper_bound -H $line_num
 }
