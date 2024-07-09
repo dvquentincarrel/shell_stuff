@@ -15,7 +15,7 @@ function repeat {
 				return 0;;
 		esac
 	done
-	shift $((OPTIND -1)) 
+	shift $((OPTIND -1))
 
 	iter=$1
 
@@ -58,9 +58,9 @@ export -f proc
 
 function cdd {
 	# cd + ls on arrival
-	cd $1 && ls -l --color=auto	
+	cd $1 && ls -l --color=auto
 }
-export -f cdd 
+export -f cdd
 
 function del_pkg {
 	# gives information about a package and asks for deletion. pacman-specific
@@ -72,11 +72,11 @@ function del_pkg {
 				return 0;;
 		esac
 	done
-	shift $((OPTIND -1)) 
+	shift $((OPTIND -1))
 	reset_arg_opt
 	sudo pacman -Qi $1 | /bin/grep -E "(Name|Description|Depends|Required|Reason)" && sudo pacman -Rs $1
 }
-export -f del_pkg 
+export -f del_pkg
 
 function xpr {
 	# opens current (default) or specified dir using a file explorer
@@ -226,7 +226,7 @@ function fcl {
         echo "Usage: fcl [-u] FILE"; return 1
     fi
 
-    echo ${PREFIX}$(readlink -nf "$1") | \
+    echo ${PREFIX}$(readlink -f "$@") | \
     tee \
         >(tr -d '\n' | xclip -sel clip) \
         >(sed -e 's/^/\x1b[1;96m/' -e 's/$/\x1b[m sent to clipboard/') \
@@ -235,7 +235,7 @@ function fcl {
 export -f fcl
 
 # Does something at the specified time, precise up to the second
-function doat { 
+function doat {
     if [[ $1 == '-h' ]] || [[ $# -lt 2 ]]; then
         echo 'Usage: doat HH:MM:SS COMMAND...'
         return
