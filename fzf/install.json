@@ -1,0 +1,20 @@
+{
+    "dependencies": [
+        "fzf",
+        "bat"
+    ],
+    "installation": {
+        "config": {
+            "dir": "$HOME/.config/bash/setup",
+            "renamed_files": [
+                {"src": "env_vars.bash", "dest": "006_fzf_env_vars.bash"},
+                {"src": "functions.bash", "dest": "007_fzf_functions.bash"},
+                {"src": "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash", "dest": "999_fzf_keybinds.bash"}
+            ]
+        },
+        "script": {
+            "dir": "$HOME/.local/bin",
+            "files": ["fzf_preview.bash"]
+        }
+    }
+}
