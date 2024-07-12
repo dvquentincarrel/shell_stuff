@@ -2,7 +2,7 @@
 
 function repeat {
 	# "Syntactic sugar" for for loops
-	background=0
+	local OPTIND background=0
 
 	while getopts "bh" opt; do
 		case $opt in
@@ -211,6 +211,7 @@ complete -A alias galias
 
 # File CLip - puts absolute path of file passed as arg in clipboard
 function fcl {
+    local OPTIND
     while getopts "hu" opt; do
         case $opt in
             h)  echo "Usage: fcl [-u] FILE"
