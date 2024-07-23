@@ -1,6 +1,6 @@
 unalias -a
 
-# ===== Basics =====  
+# ===== Basics =====
 
 alias egrep='egrep --colour=auto' #COLORS
 alias fgrep='fgrep --colour=auto' #MORE COLORS
@@ -8,10 +8,11 @@ alias grep='grep --colour=auto' #EVEN MORE COLORS
 alias ls='ls --color=auto --group-directories-first' #STILL MORE COLORS
 alias cp="cp -i" # confirm before overwriting something
 alias df='df -h' # human-readable sizes
-alias np='nano -w PKGBUILD'
+alias pu='pushd'
+alias pd='popd'
 alias more=less
 
-# ===== Redefines =====  
+# ===== Redefines =====
 
 alias free='free -h' #blocks = mega
 alias df='df -h' #human readable sizes
@@ -19,7 +20,6 @@ alias du='du -ch' #human readable AND grand total at the end
 alias ll='ls -lhX '
 alias lla='ls -laXh '
 alias llaa='ls -dhlX .*'
-alias bcd='xpr .'
 alias rm='rm -vi'
 alias mv='mv -i'
 alias cal='cal -my'
@@ -29,24 +29,20 @@ alias sqlite3='sqlite3 -header -column'
 alias man='export COLUMNS=$((COLUMNS - 7)); man'
 alias lazygit='(TERM=tmux; lazygit)'
 
-# ===== New aliases =====  
+# ===== New aliases =====
 
 alias win_network='sudo virsh net-start default'
-alias monitor-swap='xrandr --output HDMI-0 --primary --left-of DP-1'
 alias clip='xclip -sel clip'
 alias xv='xvtouch'
-alias rp="repeat"
 alias grepp='grep --colour=auto -P'
 alias pcd="cd -P"
 alias lg="ll -a --color=always | grep -i --color=never"
 alias functions="declare -F | cut -d' ' -f 3"
 alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
-alias tvim='vim -c "setl buftype=nofile"'
-alias alarm='mpv ~/opi/alarm.mp3'
 alias xop='xdg-open'
 
-# ===== Git =====  
+# ===== Git =====
 
 alias gst="git status"
 alias gcomm="git commit -m"
