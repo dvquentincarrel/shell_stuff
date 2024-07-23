@@ -4,6 +4,7 @@ export HSYNCW=true # push history lines (after each command)
 export HSYNCR=false # pull history lines (after each command)
 ## Used by bash
 export HISTCONTROL="ignoreboth" # If starting with a space, if same command as previously
+export HISTTIMEFORMAT="%y/%m/%d-%H:%M:%S " # YY/MM/DD format to timestamp entries
 export HISTSIZE=5000000
 ## General
 export CALCHISTFILE=/dev/null # To disable the use of a history file for /bin/calc
