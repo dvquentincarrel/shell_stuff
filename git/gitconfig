@@ -36,6 +36,7 @@
 [mergetool "nvimdiff"]
 	cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
 [alias]
+    fpush = push --force-with-lease --force-if-includes
 	root = rev-parse --show-toplevel
 	unstage = restore --staged
 	amend = commit --amend
