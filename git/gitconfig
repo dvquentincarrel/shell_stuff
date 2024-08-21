@@ -31,10 +31,13 @@
 [merge]
 	tool = nvimdiff
 [mergetool.vimdiff]
-	layout = LOCAL,MERGED/REMOTE
+	layout = LOCAL,BASE / MERGED
 	trustExitCode = false
-[mergetool "nvimdiff"]
-	cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
+[mergetool.nvimdiff]
+	layout = LOCAL,BASE / MERGED
+	trustExitCode = false
+#[mergetool "nvimdiff"]
+#	cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
 [alias]
     fpush = push --force-with-lease --force-if-includes
 	root = rev-parse --show-toplevel
