@@ -41,14 +41,6 @@ TAB:menu-complete
 "":forward-search-history
 # Colors files suggested for autocompletion
 set colored-stats On
-# Colors the prefix in the autocomplete list under
-set colored-completion-prefix on
-# Self-explanatory
-set completion-ignore-case On
-# hyphens and underscores are considered the same
-set completion-map-case On
-# Displays menu once before autocompletion (please no)
-set menu-complete-display-prefix Off
 # No more bell, useful for alacritty and tmux
 set bell-style none
 # Does what is says instead of ringing the bell once before
@@ -61,3 +53,14 @@ set vi-ins-mode-string \1\e[93m\2I\1\e[0m\2-
 set emacs-mode-string
 # Prevents history from staying modified
 set revert-all-at-newline on
+# Less bothersome autocompletion suggestions
+set completion-query-items 0
+set page-completions off
+# Self-explanatory
+set completion-ignore-case On
+# hyphens and underscores are considered the same
+set completion-map-case On
+# Colors the prefix in the autocomplete list under
+set colored-completion-prefix on
+# Displays menu once before autocompletion (please no)
+set menu-complete-display-prefix Off
