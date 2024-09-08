@@ -40,6 +40,7 @@
 #	cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
 [alias]
     fpush = push --force-with-lease --force-if-includes
+    brebase = rebase --interactive --keep-empty --no-rerere-autoupdate --rebase-merges --autosquash
 	root = rev-parse --show-toplevel
 	unstage = restore --staged
 	amend = commit --amend
