@@ -6,6 +6,8 @@ window:
 
 key_bindings:
     - { key: Equals, mods: Control, action: ResetFontSize }
+    - { key: Plus, mods: Control|Shift, action: IncreaseFontSize }
+    - { key: Minus, mods: Control|Shift, action: DecreaseFontSize }
 
 font:
     size: 11.0
