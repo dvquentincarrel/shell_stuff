@@ -16,5 +16,5 @@ i3lock \
     --wrong-color FFFFFF \
     --modif-color FFFFFF \
     --line-uses-inside \
-    --wrong-text '' \
+    --wrong-text "( ͡° ͜ʖ ͡°)" \
     --noinput-text '' && killall -SIGUSR2 dunst # resume
