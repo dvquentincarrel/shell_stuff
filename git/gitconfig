@@ -61,6 +61,10 @@
     retime = "!g_retime() { export GIT_AUTHOR_DATE=\"$1\"; export GIT_COMMITTER_DATE=\"$1\"; git commit --amend --reset-author --no-edit; }; g_retime"
     detach = "switch --detach"
     gwr = "worktree remove"
+    mc = "merge --continue"
+    ma = "merge --abort"
+    rc = "rebase --continue"
+    ra = "rebase --abort"
 [pull]
 	rebase = true
 [rebase]
