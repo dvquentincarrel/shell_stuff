@@ -64,3 +64,5 @@ set completion-map-case On
 set colored-completion-prefix on
 # Displays menu once before autocompletion (please no)
 set menu-complete-display-prefix Off
+# "Escapes" pasted content, allows text with newline to be pasted without running the command directly
+set enable-bracketed-paste On
