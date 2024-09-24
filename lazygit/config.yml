@@ -1,6 +1,7 @@
 gui:
   border: double
 git:
+  overrideGpg: true # Makes it so signing your commits doesn't make you want to jump off the roof
   branchLogCmd: git denselog {{branchName}}
   paging:
     colorArg: always
