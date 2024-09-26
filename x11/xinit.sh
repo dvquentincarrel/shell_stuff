@@ -8,6 +8,6 @@ fi
 
 xset r rate 250 50 # delay, rate
 xset s off -dpms # Disable dpms, prevent screen from blanking
-setxkbmap leyaourt || setxkbmap 'us(altrg-intl)' || setxkbmap us
+setxkbmap leyaourt || setxkbmap 'us(altgr-intl)' || setxkbmap us
 
 exec i3
