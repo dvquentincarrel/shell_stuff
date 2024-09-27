@@ -66,6 +66,4 @@ RCREAD=true
 # -c(ommandes) -f(iles)
 complete -cf sudo
 
-complete -F _command wedit
-
 for file in $(echo ${HOME}/.config/bash/setup/*); do source $file; done
