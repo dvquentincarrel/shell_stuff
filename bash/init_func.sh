@@ -57,28 +57,11 @@ function del_pkg {
 }
 export -f del_pkg
 
-function xpr {
-	# opens current (default) or specified dir using a file explorer
-	# $1 : dir to open
-	# $2 : file explorer to try to open the dir with
-	reset_arg_opt
-	while getopts "h" opt; do
-	case $opt in
-
-	esac
-	done
-	exp_path="${1:-.}"
-	explorer="${2:-pcmanfm}"
-    # TODO
-	! (command -v $explorer &> /dev/null) && echo "$explorer is not a valid file explorer"
-	if [ -d $exp_path ]; then
-		($explorer $exp_path &) &> /dev/null
-	else
-		echo "$exp_path is not a directory"
-	fi
-	reset_arg_opt
+function ocd {
+    # Open given dir (defaults to cwd) with default file explorer
+    xdg-open ${1:-.}
 }
-export -f xpr
+export -f ocd
 
 function reset_arg_opt {
 	unset OPTIND
