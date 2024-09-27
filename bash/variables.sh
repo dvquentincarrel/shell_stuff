@@ -13,6 +13,8 @@ export LESSHISTFILE=/dev/null # Same thing for /bin/less
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc # Default location is ~/.inputrc
 export FOTM_TERM="alacritty msg create-window" # Used for terminal popups
 
+export TMPDIR=${TMPDIR:-${XDG_RUNTIME_DIR:-/tmp}}
+
 # Paging
 export PAGER='less -S'
 nvp=$(command -v nvim); vp=$(command -v vim)
