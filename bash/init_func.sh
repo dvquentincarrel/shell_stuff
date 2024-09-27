@@ -160,7 +160,7 @@ function fcl {
     local OPTIND
     while getopts "hu" opt; do
         case $opt in
-            h)  echo "Usage: fcl [-u] FILE"
+            h)  echo "Usage: fcl [-u] FILE..."
                 echo "Puts absolute path to file (or url with -u) in clipboard"
                 return 0;;
             u)  local PREFIX="file://";;
@@ -173,7 +173,7 @@ function fcl {
         echo "Usage: fcl [-u] FILE"; return 1
     fi
 
-    echo ${PREFIX}$(readlink -f "$@") | \
+    echo ${PREFIX}$(readlink -f "$@") |
     tee \
         >(tr -d '\n' | xclip -sel clip) \
         >(sed -e 's/^/\x1b[1;96m/' -e 's/$/\x1b[m sent to clipboard/') \
