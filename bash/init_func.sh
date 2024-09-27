@@ -11,38 +11,6 @@ function th {
 }
 export -f th
 
-function repeat {
-	# "Syntactic sugar" for for loops
-	local OPTIND background=0
-
-	while getopts "bh" opt; do
-		case $opt in
-			b) background=1;;
-			h) echo "Usage: repeat NUMBER COMMANDS..."
-				echo "Repeats the chain of commands a certain time"
-				echo "Example: repeat 10 'date -Iseconds; sleep 2'"
-				echo -e "  -h\t displays this help message"
-				echo -e "  -b\t attempts to execute commands in the background"
-				return 0;;
-		esac
-	done
-	shift $((OPTIND -1))
-
-	iter=$1
-
-	shift # To remove the number of repeats
-	if [ $background -eq 0 ]; then
-		for ((i=0; i<$iter; i++)); do
-			eval $@
-		done
-	elif [ $background -eq 1 ]; then
-		for ((i=0; i<$iter; i++)); do
-			eval $@&
-		done
-	fi
-}
-export -f repeat
-
 function mcd {
 	# Makes + cd
 	mkdir -p "$1" && cd "$1"
@@ -111,22 +79,6 @@ function xpr {
 	reset_arg_opt
 }
 export -f xpr
-
-function rrm {
-	# Temporary, recoverable rm (until next /tmp flushing at least)
-	reset_arg_opt
-	while getopts "h" opt; do
-		case $opt in
-		h) echo 'sends file to /tmp instead of removing
-			arg : $1 -> file
-			returns : nothing'
-			return 0;;
-		esac
-	done
-	mv $1 /tmp
-	reset_arg_opt
-}
-export -f rrm
 
 function reset_arg_opt {
 	unset OPTIND
