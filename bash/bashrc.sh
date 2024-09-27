@@ -8,12 +8,14 @@
 # Change the window title of X terminals
 case ${TERM} in
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"';;
+        PROMPT_COMMAND=('echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"');;
 	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"';;
+        PROMPT_COMMAND=('echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"');;
     tmux*)
-		PROMPT_COMMAND='echo -ne "\033_ ${PWD/#$HOME/\~}\033\\"';;
+        PROMPT_COMMAND=('echo -ne "\033_ ${PWD/#$HOME/\~}\033\\"');;
 esac
+
+PROMPT_COMMAND+=('if [[ -e $TMPDIR/bash_nohist ]]; then HISTFILE=/dev/null; else HISTFILE=~/.bash_history; fi')
 
 use_color=true
 

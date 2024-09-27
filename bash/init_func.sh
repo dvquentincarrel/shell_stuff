@@ -1,5 +1,16 @@
 # Absolute melting pot of functions and utilities
 
+function th {
+    if [[ -e $TMPDIR/bash_nohist ]]; then
+        env rm "$TMPDIR/bash_nohist"
+        printf '\x1b[32mhistory enabled\x1b[m\n' 1>&2
+    else
+        touch "$TMPDIR/bash_nohist"
+        printf '\x1b[31mhistory disabled\x1b[m\n' 1>&2
+    fi
+}
+export -f th
+
 function repeat {
 	# "Syntactic sugar" for for loops
 	local OPTIND background=0
