@@ -40,7 +40,7 @@ alias lg="ll -a --color=always | grep -i --color=never"
 alias functions="declare -F | cut -d' ' -f 3"
 alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
-alias xop='xdg-open'
+alias xo='xdg-open'
 
 # ===== Git =====
 
