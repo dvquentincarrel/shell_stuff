@@ -17,11 +17,15 @@ export TMPDIR=${TMPDIR:-${XDG_RUNTIME_DIR:-/tmp}}
 
 # Paging
 export PAGER='less -S'
-nvp=$(command -v nvim); vp=$(command -v vim)
-export EDITOR=${nvp:-$vp} # tries to set nvim as default editor, fallsback to vim
-if [[ -n $nvp ]]; then
+shopt -u expand_aliases
+{
+    export EDITOR=$(which nvim || which vim || which vi || which micro || which nano)
+    export VISUAL=$(which neovide || { [[ -n $ETERM ]] && echo $ETERM $EDITOR; } || which gvim || which gedit || which code)
+} 2>/dev/null
+shopt -s expand_aliases
+if [[ $EDITOR =~ nvim ]]; then
     export MANPAGER="nvim +Man!"
-elif [[ -n $vp ]]; then
+elif [[ $EDITOR =~ vim ]]; then
     export MANPAGER="vim +MANPAGER --not-a-term -"
 fi
 
