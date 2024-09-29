@@ -42,30 +42,6 @@ alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
 alias xo='xdg-open'
 
-# ===== Git =====
-
-alias gst="git status"
-alias gcomm="git commit -m"
-alias gcom="git commit"
-alias gad="git add"
-alias gadd=gad
-alias gpu="git push"
-alias gpl="git pull --verbose"
-alias gdt="git difftool"
-alias glog="git denselog"
-alias aglog="git allog"
-alias pglog="git patchlog"
-alias gchp="git cherry-pick"
-alias gchpa="gchp --abort"
-alias gchpc="gchp --continue"
-alias gpgs="gchp --skip"
-alias gct="git checkout"
-alias groot='cd $(git root)'
-alias gfh='git fetch'
-
-complete -W '$(git rev-parse 2>/dev/null && git branch --format "%(refname:short)" | grep -v "HEAD detached at"; git tag --list)' gct
-complete -W '$(git rev-parse 2>/dev/null && git status --short | sed "s/  / /" | cut -d" " -f2 )' gadd
-
 # shells are preceeded by a hyphen if they're login shells
 if [[ -n "$ZSH_VERSION" ]]; then
 	alias reload_all='source ~/.zshrc'
