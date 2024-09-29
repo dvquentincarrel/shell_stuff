@@ -4,7 +4,7 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgrep.rc
 function _print_grep_context {
     file="$1"
     line_num="$2"
-    total_lines=$(wc -l "$1" | cut -d' ' -f1)
+    total_lines=$(awk 'END {print NR}' < "$1")
     if ((total_lines > 5000)); then
         awk "NR==$line_num"' {print "\033[7m" $0 "\033[m"; next} {print $0}' "$file"
         return 0
@@ -20,7 +20,7 @@ function _print_grep_context {
     upper_bound=$((upper_bound < total_lines ? upper_bound : total_lines))
 
     # TODO: caching
-    printf "%0.s\n" $(seq $lower_bound) # Ensures coherent scroll offsets
+    for ((i=0; i<$lower_bound; i++)); do echo; done # Ensures coherent scroll offsets
     bat -n --color always "$file" -r $lower_bound:$upper_bound -H $line_num
 }
 export -f _print_grep_context
