@@ -20,7 +20,8 @@ export PAGER='less -S'
 shopt -u expand_aliases
 {
     export EDITOR=$(which nvim || which vim || which vi || which micro || which nano)
-    export VISUAL=$(which neovide || { [[ -n $ETERM ]] && echo $ETERM $EDITOR; } || which gvim || which gedit || which code)
+    #export VISUAL=$(which neovide || { [[ -n $ETERM ]] && echo $ETERM $EDITOR; } || which gvim || which gedit || which code)
+    export VISUAL=$EDITOR
 } 2>/dev/null
 shopt -s expand_aliases
 if [[ $EDITOR =~ nvim ]]; then
