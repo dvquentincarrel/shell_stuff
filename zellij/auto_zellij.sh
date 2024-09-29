@@ -1,4 +1,4 @@
-if which zellij &>/dev/null && [ -z "$ZELLIJ" ] && [ -z "$NOMUXER" ]; then
+if which zellij &>/dev/null && [ -z "$ZELLIJ" ] && [ -z "$TMUX" ] && [ -z "$NOMUXER" ]; then
     # If enabled, joins the zellij session 'main' or creates it if it doesn't exist
     [ -f '/tmp/nozellij' ] && return 0;
     if zellij ls | grep main; then
