@@ -1,0 +1,10 @@
+{
+    "dependencies": ["scrot"],
+    "installation": {
+        "script": {
+            "dir": "$HOME/.local/bin",
+            "strip_ext": true,
+            "files": ["wrop.sh"]
+        }
+    }
+}

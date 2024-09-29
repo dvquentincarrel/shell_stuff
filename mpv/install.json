@@ -1,0 +1,16 @@
+{
+    "dependencies": ["wget", "mpv"],
+    "installation": {
+        "config": {
+            "dir": "$HOME/.config/mpv",
+            "files": ["mpv.conf", "input.conf"]
+        },
+        "scripts": {
+            "dir": "$HOME/.config/mpv/scripts",
+            "files": [
+                "eq_len.lua",
+                "https://raw.githubusercontent.com/mpv-player/mpv/master/TOOLS/lua/autoload.lua"
+            ]
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "dependencies": ["tmux", "grep", "awk", "tail", "cut"],
+    "installation": {
+        "config": {
+            "dir": "$HOME/.config/tmux",
+            "files": ["tmux.conf"]
+        },
+        "scripts": {
+            "dir": "$HOME/.local/bin",
+            "strip_ext": true,
+            "files": ["notmux.sh"]
+        },
+        "setup": {
+            "dir": "$HOME/.config/bash/setup",
+            "renamed_files": [
+              { "src": "auto_tmux.sh", "dest": "000_auto_tmux.sh" }
+            ]
+        }
+    }
+}

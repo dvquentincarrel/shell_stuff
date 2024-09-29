@@ -1,0 +1,9 @@
+{
+    "dependencies": ["dunst"],
+    "installation": {
+        "config": {
+            "dir": "$HOME/.config/dunst",
+            "files": ["dunstrc"]
+        }
+    }
+}

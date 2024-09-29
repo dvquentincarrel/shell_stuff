@@ -1,0 +1,11 @@
+{
+    "dependencies": ["bat"],
+    "installation": {
+        "config": {
+            "dir": "$HOME/.config/bat",
+            "renamed_files": [
+                { "src": "bat.rc", "dest": "config" }
+            ]
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "dependencies": ["rg", "awk", "fzf", "bat"],
+    "installation": {
+        "config": {
+            "dir": "$HOME/.config/ripgrep",
+            "files": ["ripgrep.rc"]
+        },
+        "setup": {
+            "dir": "$HOME/.config/bash/setup",
+            "renamed_files": [
+              { "src": "ripgrep.bash", "dest": "011_ripgrep.bash" }
+            ]
+        }
+    }
+}

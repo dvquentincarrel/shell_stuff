@@ -1,8 +1,5 @@
 {
-    "dependencies": [
-        "fzf",
-        "bat"
-    ],
+    "dependencies": ["fzf", "bat"],
     "installation": {
         "config": {
             "dir": "$HOME/.config/bash/setup",

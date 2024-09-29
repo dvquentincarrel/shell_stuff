@@ -1,0 +1,5 @@
+{
+    "post": ["sudo ./install_setup_script.sh"],
+    "dependencies": ["lightdm"],
+    "installation": {}
+}

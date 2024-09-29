@@ -1,0 +1,14 @@
+{
+    "dependencies": ["xrandr", "xset", "setxkbmap", "uname", "grep"],
+    "installation": {
+        "config": {
+            "dir": "$HOME",
+            "renamed_files": [
+              { "src": "xprofile.sh", "dest": ".xprofile" },
+              { "src": "xinit.sh", "dest": ".xinitrc" },
+              { "src": "xsession.sh", "dest": ".xsession" },
+              { "src": "xsession.sh", "dest": ".xsessionrc" }
+            ]
+        }
+    }
+}

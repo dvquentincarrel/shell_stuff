@@ -1,0 +1,19 @@
+{
+    "installation": {
+        "config": {
+            "dir": "$HOME/.config/readline",
+            "files": ["inputrc"]
+        },
+        "setup": {
+            "dir": "$HOME/.config/bash/setup/",
+            "renamed_files": [
+                { "src": "ls_colors.sh", "dest": "010_ls_colors.sh" }
+            ]
+        },
+        "script": {
+            "dir": "$HOME/.local/bin",
+            "strip_ext": true,
+            "files": ["readline_keybinds.sh"]
+        }
+    }
+}

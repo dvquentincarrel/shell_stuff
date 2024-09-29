@@ -1,0 +1,11 @@
+{
+    "dependencies": ["nnn"],
+    "installation": {
+        "setup": {
+            "dir": "$HOME/.config/bash/setup",
+            "renamed_files": [
+              { "src": "nnn_config.sh", "dest": "009_nnn_config.sh" }
+            ]
+        }
+    }
+}

@@ -5,7 +5,7 @@
     "installation": {
         "config": {
             "dir": "$HOME/.config/alacritty",
-            "files": ["alacritty.yml"]
+            "files": ["alacritty.toml"]
         }
     }
 }
