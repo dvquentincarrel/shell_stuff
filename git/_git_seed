@@ -1,5 +1,0 @@
-#!/bin/bash
-# Find ancestor fromn which history divereged to show all its descendants
-branch=$(git branch --show-current)
-seed=$(git merge-base $branch origin/$branch)
-echo $seed~..
