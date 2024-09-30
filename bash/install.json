@@ -5,7 +5,8 @@
             "dir": "$HOME",
             "renamed_files": [
                 { "src": "bashrc.sh", "dest": ".bashrc" },
-                { "src": "profile.sh", "dest": ".profile" }
+                { "src": "profile.sh", "dest": ".profile" },
+                { "src": "bash_profile.sh", "dest": ".bash_profile" }
             ]
         },
         "setup": {
