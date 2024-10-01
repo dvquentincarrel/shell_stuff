@@ -6,6 +6,17 @@
         "config": {
             "dir": "$HOME/.config/alacritty",
             "files": ["alacritty.toml"]
+        },
+        "setup": {
+            "dir": "$HOME/.config/bash/setup",
+            "renamed_files": [
+                {"src": "shell_vars.sh", "dest": "010_alacritty_vars.sh"}
+            ]
+        },
+        "script": {
+            "dir": "$HOME/.local/bin",
+            "strip_ext": true,
+            "files": ["alacritty_wrapper.sh"]
         }
     }
 }
