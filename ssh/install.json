@@ -1,0 +1,11 @@
+{
+    "dependencies": ["ssh"],
+    "installation": {
+        "setup": {
+            "dir": "$HOME/.config/bash/setup",
+            "renamed_files": [
+                {"src": "aliases.bash", "dest": "999_ssh_aliases.bash"}
+            ]
+        }
+    }
+}
