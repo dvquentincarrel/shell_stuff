@@ -68,4 +68,8 @@ RCREAD=true
 # -c(ommandes) -f(iles)
 complete -cf sudo
 
+if [[ $(ps -o comm= $PPID) = sshd ]]; then
+    NOMUXER=true
+fi
+
 for file in $(echo ${HOME}/.config/bash/setup/*); do source $file; done
