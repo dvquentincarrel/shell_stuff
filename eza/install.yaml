@@ -1,0 +1,8 @@
+dependencies:
+- 'eza'
+installation:
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - dest: '999_eza_alias.bash'
+      src: 'alias.bash'
