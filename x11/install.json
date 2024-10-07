@@ -9,6 +9,11 @@
               { "src": "xsession.sh", "dest": ".xsession" },
               { "src": "xsession.sh", "dest": ".xsessionrc" }
             ]
+        },
+        "script": {
+            "dir": "$HOME/.local/bin",
+            "strip_ext": true,
+            "files": ["random_wallpaper.bash"]
         }
     }
 }
