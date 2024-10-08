@@ -7,11 +7,12 @@ fi
 i=0
 # Posix sh loop
 while [ $i -lt 2000 ]; do
-    if pgrep alacritty; then
+    alacritty msg create-window "$@"
+    if [ $? -eq 0 ]; then
         break
     fi
     sleep 0.05
     i=$((i + 1))
 done
 
-alacritty msg create-window "$@"
+
