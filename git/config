@@ -77,4 +77,6 @@
 	relativePath = true
 [push]
     default = upstream
+[format]
+    pretty = fuller
 # vim: ft=dosini
