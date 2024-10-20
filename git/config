@@ -1,7 +1,6 @@
 [user]
-	name = dvquentincarrel
+	name = Quentin Carrel
 	email = dvquentincarrel@gmail.com
-	signingkey = 1639450FB57FD4A37D8BEAC18C8E58608A04539A
 [includeIf "hasconfig:remote.*.url:git@git.objectif-pi.com:*/**"]
 	path = ~/.config/git/gitconfig-work
 [init]
@@ -27,7 +26,7 @@
 	line-numbers-zero-style = "#777777"
 	map-styles = "bold purple => syntax #500040, bold cyan => syntax #105050"
 [commit]
-	verbose = true
+	verbose = false
 [merge]
 	tool = nvimdiff
 [mergetool.vimdiff]
@@ -47,19 +46,12 @@
 	denselog = log --pretty=format:'%C(auto)%h %G? %C(cyan)%as %C(blue)%an  %Creset%s %C(auto)%d' --graph --full-history --simplify-merges
 	allog = log --all --graph --stat --full-history
 	patchlog = log -p --stat --full-history --simplify-merges
-	upbase = "!upbase() { git rebase -i HEAD~$1; }; upbase"
-	updiff = "!updiff() { git diff HEAD~$1; }; updiff"
 	alias = "!git config --get-regexp '^alias.' | perl -pe 's/^alias.//;' -e 's/^(.*?) /\\e[1;33m\\1\\e[0m: /' | column -t -s"
 	github = "!git remote add origin git@github.com:${1:-dvquentincarrel}/$(basename $PWD).git; git push -u origin master"
 	clean-ignore = clean -dfX
 	hooks = "!find $(git root)/.git/hooks -type f ! -name '*.sample'"
-	mad = "!g_madd() { git add $(git diff --name-only --diff-filter=M); }; g_madd"
-	unrebase = "!g_unrebase() { git reset --hard HEAD@{$(git reflog | grep -n 'rebase: checkout' | head -n1 | cut -f1 -d':')}; }; g_unrebase"
 	sdiff = "-c delta.side-by-side=true diff"
-	checkpoint = "!g_checkpoint() { git commit --allow-empty -m 'CHECKPOINT '\"$*\" && git reset HEAD~; }; g_checkpoint"
-    seed = "!git log --graph --all --ancestry-path $(_git_seed)"
     retime = "!g_retime() { export GIT_AUTHOR_DATE=\"$1\"; export GIT_COMMITTER_DATE=\"$1\"; git commit --amend --reset-author --no-edit; }; g_retime"
-    detach = "switch --detach"
     mc = "merge --continue"
     ma = "merge --abort"
     rc = "rebase --continue"
