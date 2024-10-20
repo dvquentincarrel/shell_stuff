@@ -3,7 +3,7 @@
     "installation": {
         "config": {
             "dir": "$HOME/.config/tmux",
-            "files": ["tmux.conf"]
+            "files": ["tmux.conf", "status.conf", "style.conf", "keybinds.conf"]
         },
         "scripts": {
             "dir": "$HOME/.local/bin",
