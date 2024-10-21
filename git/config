@@ -51,7 +51,7 @@
 	clean-ignore = clean -dfX
 	hooks = "!find $(git root)/.git/hooks -type f ! -name '*.sample'"
 	sdiff = "-c delta.side-by-side=true diff"
-    retime = "!g_retime() { export GIT_AUTHOR_DATE=\"$1\"; export GIT_COMMITTER_DATE=\"$1\"; git commit --amend --reset-author --no-edit; }; g_retime"
+    retime = "!g_retime() { export grt=$(date -d \"$1\"); GIT_AUTHOR_DATE=\"$grt\" GIT_COMMITTER_DATE=\"$grt\" git commit --amend --reset-author --no-edit; }; g_retime"
     mc = "merge --continue"
     ma = "merge --abort"
     rc = "rebase --continue"
