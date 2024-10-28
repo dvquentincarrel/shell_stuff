@@ -117,11 +117,12 @@ colors() {
 }
 
 ex () {
-    # unzips file automatically using the right tool
+    # decompresses file automatically using the right tool
     if [ -f $1 ] ; then
         case $1 in
             *.tar.bz2)   tar xjf $1   ;;
             *.tar.gz)    tar xzf $1   ;;
+            *.tar.xz)    tar xJf $1   ;;
             *.bz2)       bunzip2 $1   ;;
             *.rar)       unrar x $1   ;;
             *.gz)        gunzip $1    ;;
@@ -180,20 +181,6 @@ function fcl {
         >/dev/null
 }
 export -f fcl
-
-# Does something at the specified time, precise up to the second
-function doat {
-    if [[ $1 == '-h' ]] || [[ $# -lt 2 ]]; then
-        echo 'Usage: doat HH:MM:SS COMMAND...'
-        return
-    fi
-    while [[ $(date +%R:%S) < "$1" ]]; do
-        sleep 1;
-    done
-	shift
-    "$@"
-}
-export -f doat
 
 # Easier to remember than history -n
 function sync_hist {
