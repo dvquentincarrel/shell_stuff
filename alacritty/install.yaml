@@ -1,0 +1,22 @@
+dependencies:
+- alacritty
+installation:
+  fonts:
+    dir: $HOME/.fonts
+    files:
+    - 'https://github.com/xtevenx/ComicMonoNF/raw/master/v2/ComicMonoNerdFont-Regular.ttf'
+    - 'https://github.com/xtevenx/ComicMonoNF/raw/master/v2/ComicMonoNerdFont-Bold.ttf'
+  config:
+    dir: $HOME/.config/alacritty
+    files:
+    - alacritty.toml
+  scripts:
+    dir: $HOME/.local/bin
+    strip_ext: true
+    files:
+    - alacritty_wrapper.sh
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+      - src: shell_vars.sh
+        dest: 010_alacritty_vars.sh
