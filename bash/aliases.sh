@@ -31,7 +31,6 @@ alias lazygit='TERM=tmux CONFIG_DIR=$HOME/.config/lazygit lazygit'
 
 # ===== New aliases =====
 
-alias win_network='sudo virsh net-start default'
 alias clip='xclip -sel clip'
 alias xv='xvtouch'
 alias grepp='grep --colour=auto -P'
@@ -41,6 +40,7 @@ alias functions="declare -F | cut -d' ' -f 3"
 alias mpcd='cd $(mktemp -d XXXXX)' # "Make Perishable cd"
 alias nbk='ln -nsf "$PWD" "$HOME/.config/nnn/bookmarks/000_TMP"' # Nnn BooKmark
 alias xo='xdg-open'
+alias penv='source $(find -type f -name activate -path "*venv*/bin*" | head -n1)'
 
 # shells are preceeded by a hyphen if they're login shells
 if [[ -n "$ZSH_VERSION" ]]; then
