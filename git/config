@@ -56,6 +56,10 @@
     ma = "merge --abort"
     rc = "rebase --continue"
     ra = "rebase --abort"
+    spush = "!g_surgical_push() { [ -z $1 ] && echo 'No ref given' && return 1; git push ${2:-origin} $1:$(git branch --show-current); }; g_surgical_push"
+    cp = "cherry-pick"
+    ca = "cherry-pick --abort"
+    cc = "cherry-pick --continue"
 [pull]
 	rebase = true
 [rebase]
