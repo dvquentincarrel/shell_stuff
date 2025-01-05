@@ -1,0 +1,8 @@
+dependencies:
+- 'nsxiv'
+installation:
+  config:
+    dir: $HOME/.config/nsxiv/exec
+    strip_ext: true
+    files:
+    - key-handler.bash
