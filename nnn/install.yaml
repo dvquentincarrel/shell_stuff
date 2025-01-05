@@ -1,0 +1,15 @@
+dependencies:
+- 'nnn'
+installation:
+  config:
+    dir: $HOME/.config/nnn/plugins
+    strip_ext: true
+    files:
+    - fzd.bash
+    - images.bash
+    - media.bash
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - src: 'nnn_config.sh'
+      dest: '009_nnn_config.sh'
