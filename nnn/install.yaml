@@ -13,3 +13,5 @@ installation:
     renamed_files:
     - src: 'nnn_config.sh'
       dest: '009_nnn_config.sh'
+    - src: 'bash_prompt.bash'
+      dest: '009_bash_prompt.bash'
