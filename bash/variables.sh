@@ -1,7 +1,4 @@
 # History
-## Used by sync_hist
-export HSYNCW=true # push history lines (after each command)
-export HSYNCR=false # pull history lines (after each command)
 ## Used by bash
 export HISTCONTROL="ignoreboth" # If starting with a space, if same command as previously
 export HISTTIMEFORMAT="%y/%m/%d-%H:%M:%S " # YY/MM/DD format to timestamp entries

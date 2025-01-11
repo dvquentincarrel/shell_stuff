@@ -139,12 +139,6 @@ ex () {
 	fi
 }
 
-function share_hist {
-	$HSYNCW && history -a
-	$HSYNCR && history -n
-}
-export -f share_hist
-
 function empty_file_cache {
 	sudo sysctl vm.drop_caches=3
 }
