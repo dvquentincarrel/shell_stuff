@@ -17,4 +17,4 @@ if [[ $(ps -o comm= $PPID) = sshd ]]; then
     NOMUXER=true
 fi
 
-for file in $(echo ${HOME}/.config/bash/setup/*); do source $file; done
+for file in $(echo ${HOME}/.config/bash/setup/* 2>/dev/null); do source $file; done
