@@ -1,5 +1,6 @@
 {
-    "dependencies": ["i3", "i3lock", "pgrep", "i3-nagbar", "shutdown", "i3-msg", "xclip", "i3status"],
+    "dependencies": ["i3", "i3lock", "pgrep", "i3-nagbar", "shutdown", "i3-msg", "i3status"],
+    "opt_dependencies": ["xclip"],
     "installation": {
         "i3_config": {
             "dir": "$HOME/.config/i3",

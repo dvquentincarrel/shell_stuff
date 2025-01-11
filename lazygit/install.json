@@ -1,5 +1,5 @@
 {
-    "dependencies": ["lazygit"],
+    "dependencies": ["lazygit", "delta"],
     "installation": {
         "config": {
             "dir": "$HOME/.config/lazygit",
