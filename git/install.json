@@ -9,7 +9,8 @@
             "dir": "$HOME/.config/bash/setup",
             "renamed_files": [
               { "src": "autocomplete.bash", "dest": "999_git_alias_autocomplete.bash" },
-              { "src": "aliases.bash", "dest": "100_git_aliases.bash" }
+              { "src": "aliases.bash", "dest": "100_git_aliases.bash" },
+              { "src": "bash_prompt.bash", "dest": "10_git_prompt.bash" }
             ]
         }
     }
