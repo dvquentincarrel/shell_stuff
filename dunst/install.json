@@ -1,5 +1,5 @@
 {
-    "dependencies": ["dunst"],
+    "dependencies": ["dunst", "notify-send"],
     "installation": {
         "config": {
             "dir": "$HOME/.config/dunst",
