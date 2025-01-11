@@ -1,4 +1,4 @@
-if which tmux &>/dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ -z "$NOMUXER" ]; then
+if which tmux &>/dev/null && [ -z "$TMUX" ] && [ -z "$NOMUXER" ] && pgrep Xorg; then
     # If enabled, joins the tmux session 'mgp' or creates it if it doesn't exist
     [ -f '/tmp/notmux' ] && return 0;
     if tmux ls; then
