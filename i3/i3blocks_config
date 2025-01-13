@@ -1,0 +1,35 @@
+# vim: ft=dosini
+
+[weather]
+command=curl -Ss 'https://wttr.in/Grenoble?format=4'
+color=#B19CD9
+interval=600
+
+[interface/ip]
+command=ip -brief addr | awk '/UP/ { gsub(/\/[0-9]+/, "", $3); printf "<span foreground=\"#FDFD96\">%s</span> %s\n", $1, $3 }'
+markup=pango
+interval=once
+
+#[battery]
+
+[volume]
+command=wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F . '{printf "🔊 %s%%\n", $2}'
+interval=once
+signal=10
+
+[disk usage]
+command=df -h --output=avail,size / | awk 'NR==2 {printf "💾 %s/%s\n", $1, $2 }'
+interval=1
+
+[cpu load]
+# avg 1min load, used_cores/total_cores
+command=i3bl_load /proc/loadavg
+interval=1
+
+[ram]
+command=i3bl_memory /proc/meminfo
+interval=1
+
+[time]
+command=date +"%Y-%m-%d %H:%M:%S"; [ -n "$button" ] && st -c FLOATING -f 'JetBrainsMono NF:size=12' -e sh -c 'cal -my --color=always | less'
+interval=1
