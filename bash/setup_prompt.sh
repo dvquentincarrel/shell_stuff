@@ -32,10 +32,12 @@ function _gen_prompt(){
 	PS1="$__lhs"
 	len=${#__prompt[@]}
 	for ((i=0; i<$len; i++)); do
+        local old_output="$output"
 		local output=$(eval ${__prompt[$i]})
-		if [[ $i -ne $((len-1)) ]] && [[ -n $output ]]; then
-			PS1="$PS1 $output $__mid"
-		elif [[ -n $output ]]; then
+		if [[ -n $output ]]; then
+            if [[ -n $old_output ]]; then
+                PS1="$PS1 $__mid"
+            fi
 			PS1="$PS1 $output"
 		fi
 	done
