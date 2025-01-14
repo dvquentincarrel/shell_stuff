@@ -29,19 +29,18 @@ __prompt=(
 # Joins output of every func in __prompt, separated by $__mid, wrapped in $__lhs and $__rhs
 function _gen_prompt(){
 	__ret=$?
-	PS1="$__lhs"
+
+    # Constructs blocks to known which to join
 	len=${#__prompt[@]}
-	for ((i=0; i<$len; i++)); do
+	for ((i=0; i<len; i++)); do
         local old_output="$output"
 		local output=$(eval ${__prompt[$i]})
 		if [[ -n $output ]]; then
-            if [[ -n $old_output ]]; then
-                PS1="$PS1 $__mid"
-            fi
-			PS1="$PS1 $output"
+            local blocks+=("$output")
 		fi
 	done
-	PS1="$PS1 $__rhs "
+
+    PS1="$__lhs $(join_by " $__mid " "${blocks[@]}") $__rhs "
 }
 
 PROMPT_COMMAND+=(_gen_prompt)
