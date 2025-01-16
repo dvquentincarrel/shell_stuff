@@ -244,6 +244,7 @@ bindsym --release Mod4+Shift+s exec wrop "select"
 # Auto floating
 for_window [class="Pavucontrol"] floating enable
 for_window [class="FLOATING"] floating enable
+floating_minimum_size 900 x 500
 for_window [class="Tk"] floating enable
 for_window [class="^steam$" title="^[^S][^t]"] floating enable
 for_window [class="^HIDEME$"] move scratchpad
