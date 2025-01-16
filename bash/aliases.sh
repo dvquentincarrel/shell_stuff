@@ -14,12 +14,13 @@ alias more=less
 
 # ===== Redefines =====
 
+ls=$(command -v eza exa ls | head -n1)
 alias free='free -h' #blocks = mega
 alias df='df -h' #human readable sizes
 alias du='du -ch' #human readable AND grand total at the end
-alias ll='ls -lhX '
-alias lla='ls -laXh '
-alias llaa='ls -dhlX .*'
+alias ll="$ls -lh "
+alias lla="$ls -lah "
+alias llaa="$ls -dhl .*"
 alias rm='rm -vi'
 alias mv='mv -i'
 alias cal='cal -my'
