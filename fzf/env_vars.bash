@@ -14,8 +14,10 @@ export FZF_DEFAULT_OPTS='
 --bind "ctrl-o:execute(xdg-open {})"
 --bind "ctrl-p:toggle-preview"
 --bind "ctrl-/:execute(fzf --height=100% --border-label=\"Help - Esc / ^C to leave\" --border=rounded --ansi --preview="" <<< $FZF_HELP)"
+--info=inline
 --ansi
 --preview="fzf_preview.bash {}"
+--preview-window=hidden
 --multi
 --reverse
 --color "hl:#FFAA00,hl+:#FFAA00"
