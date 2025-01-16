@@ -10,9 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $left_screen DP-1
-set $right_screen HDMI-0
-set $TERMINAL alacritty_wrapper
+include $XDG_CONFIG_HOME/i3/other*
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -63,8 +61,8 @@ bindsym XF86AudioLowerVolume exec app_vol -3%
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+x exec $TERMINAL
-bindsym $mod+space exec "$TERMINAL -e bash -c 'export NOMUXER=true; exec bash'"
+bindsym $mod+x exec $TERM_EMULATOR
+bindsym $mod+space exec "$TERM_EMULATOR -e bash -c 'export NOMUXER=true; exec bash'"
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -257,18 +255,7 @@ client.unfocused		#555555 	#222222 		#999999 	#555555 		#442211
 client.focused_inactive	#555555 	#111111 		#ffbb22 	#999999 		#664400
 hide_edge_borders smart
 
-# [workspace  screen] mapping
-workspace 1 output $right_screen
-workspace 3 output $right_screen
-workspace 5 output $right_screen
-workspace 7 output $right_screen
-workspace 9 output $right_screen
-workspace 2 output $left_screen
-workspace 4 output $left_screen
-workspace 6 output $left_screen
-workspace 8 output $left_screen
 focus_wrapping yes
-
 workspace_auto_back_and_forth yes
 for_window [all] title_window_icon yes
 
