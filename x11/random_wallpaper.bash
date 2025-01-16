@@ -1,7 +1,7 @@
 #!/bin/env bash
 help_msg="random_wallpaper [FILE/DIR] [-d slideshow delay (seconds)]"
 
-while getopts "d:h" opt; do
+while getopts "d:hs" opt; do
     case $opt in
         h)  echo -e "$help_msg"; exit 0;;
         d)  DURATION=$OPTARG;;
@@ -28,12 +28,21 @@ else
     WALLPAPERS=("$1")
 fi
 
+outputs=($(xrandr | grep '\sconnected' | cut -f1 -d ' '))
+
 nb_entries=${#WALLPAPERS[@]}
-printf '%s\n' "${WALLPAPERS[@]}"
 # Gets a random index between 0 and number of entries
 while true; do
-    index=$(shuf -i 0-$nb_entries -n 1)
-    $WALLPAPER_SETTER "${WALLPAPERS[$index]}"
+    index=($(shuf -i 0-$nb_entries -n ${#outputs[@]}))
+    if [[ $WALLPAPER_SETTER =~ xwallpaper ]]; then
+        data=()
+        for ((i=0; i < ${#outputs[@]}; i++)); do
+            data+=(--output ${outputs[$i]} --zoom "${WALLPAPERS[${index[$i]}]}")
+        done
+        xwallpaper "${data[@]}"
+    else
+        $WALLPAPER_SETTER "${WALLPAPERS[${index[0]}]}"
+    fi
     if [ -z $DURATION ]; then
         echo $DURATION
         break
