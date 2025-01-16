@@ -17,6 +17,6 @@ if [[ $(ps -o comm= $PPID) = sshd ]]; then
     NOMUXER=true
 fi
 
-PROMPT_COMMAND=('history -a; history -n')
+PROMPT_COMMAND=('history -a')
 
 for file in $(echo ${HOME}/.config/bash/setup/* 2>/dev/null); do source $file; done
