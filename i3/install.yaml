@@ -33,3 +33,4 @@ installation:
       - change_volume.bash
       - i3block_scripts/i3bl_memory.awk
       - i3block_scripts/i3bl_load.awk
+      - i3block_scripts/i3bl_volume.bash

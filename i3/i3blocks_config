@@ -13,7 +13,7 @@ interval=once
 #[battery]
 
 [volume]
-command=wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F . '{printf "🔊 %s%%\n", $2}'
+command=i3bl_volume
 interval=once
 signal=10
 
@@ -31,5 +31,5 @@ command=i3bl_memory /proc/meminfo
 interval=1
 
 [time]
-command=date +"%Y-%m-%d %H:%M:%S"; [ -n "$button" ] && st -c FLOATING -f 'JetBrainsMono NF:size=12' -e sh -c 'cal -my --color=always | less'
+command=date +"%Y-%m-%d %H:%M:%S"
 interval=1
