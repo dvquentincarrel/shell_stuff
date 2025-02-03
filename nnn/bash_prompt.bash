@@ -1,8 +1,14 @@
 #!/bin/env bash
 
-function print_nnn(){
-	[[ -n $NNNLVL ]] && echo '\[\033[35m\]'N$NNNLVL'\[\033[m\]'
-}
+if [[ $FANCY_COLORS = true ]]; then
+    function print_nnn(){
+        [[ -n $NNNLVL ]] && echo '\[\033[38;5;163m\]'N$NNNLVL'\[\033[m\]'
+    }
+else
+    function print_nnn(){
+        [[ -n $NNNLVL ]] && echo '\[\033[95m\]'N$NNNLVL'\[\033[m\]'
+    }
+fi
 
 # Test if sourced or ran
 if $(return 0 2>/dev/null); then

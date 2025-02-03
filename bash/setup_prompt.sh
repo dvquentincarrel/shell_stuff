@@ -1,5 +1,17 @@
 # Modular-ish prompt that can easily be extended by other programs
 
+# Tries to figure whether to enable or disable the fancy shmancies
+if [[ $TERM =~ ^linux ]]; then
+    export FANCY_COLORS=false
+    export FANCY_SYMBOLS=false
+elif [[ -n $TMUX ]] && [[ $(tmux display -p '#{client_tty}') =~ /dev/tty[0-9] ]]; then
+    export FANCY_COLORS=false
+    export FANCY_SYMBOLS=false
+else
+    export FANCY_COLORS=true
+    export FANCY_SYMBOLS=true
+fi
+
 # Adds a function to the prompt construction
 function _add_prompt(){
 	if [[ $1 = pre ]]; then
