@@ -25,25 +25,18 @@ function _print_grep_context {
 }
 export -f _print_grep_context
 
-function _vimopen_grep_output {
-    if [[ $# -gt 1 ]]; then
-        echo "$@" | tr ' ' '\n' > /tmp/frg.omod
-        nvim -n /tmp/frg.omod
-    else
-        # file:line => file +line; if only a single file selected
-        nvim ${1/:/ +}
-    fi
-}
-export -f _vimopen_grep_output
-
 function frg {
-    rg "$@" --color=always | fzf -0 -d':' --height=100% \
+    local vim=$(command -v nvim vim | head -n1)
+    rg "$@" --color=always --vimgrep | \
+    fzf -0 -d':' --height=100% \
         --preview="_print_grep_context {1} {2}" \
-        --preview-window=top,50%,+{2}/2,wrap \
-        --bind='enter:execute(_vimopen_grep_output {+1..2})'
+        --preview-window=top,50%,+{2}/2,wrap > /tmp/frg
+
     if [[ $? -eq 1 ]]; then
         echo -e "\x1b[31mNo match found for \x1b[0m'$@'"
         return 1
+    elif [[ -s /tmp/frg ]]; then
+        $vim -q /tmp/frg +cw
     fi
 }
 export -f frg
