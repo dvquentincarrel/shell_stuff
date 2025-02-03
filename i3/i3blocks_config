@@ -30,6 +30,10 @@ interval=1
 command=i3bl_memory /proc/meminfo
 interval=1
 
+[bat]
+command=upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage/ {printf("%s🔋", $2)}'
+interval=5
+
 [time]
 command=date +"%Y-%m-%d %H:%M:%S"
 interval=1
