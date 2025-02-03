@@ -39,10 +39,15 @@ fi
 function print_git(){
     $__GIT || return 0
     [[ $PWD = $HOME ]] && return 0
-    { [[ -d git ]] || git rev-parse --show-toplevel &>/dev/null; } || return 0
+    { [[ -d .git ]] || git rev-parse --show-toplevel &>/dev/null; } || return 0
     __print_ref
     $__GIT_STASH && __print_stash
-    $__GIT_STATUS && __print_status
+    # Only print status for repos whose packs amount to less than 100MB. Not a
+    # perfect metric, especially without running `git gc` first, but good enough
+    # for a simple script
+    if [[ $(git count-objects -v 2>/dev/null | awk '/size-pack/ {print $2}') -lt 100000 ]]; then
+        $__GIT_STATUS && __print_status
+    fi
 }
 
 function __print_ref(){
