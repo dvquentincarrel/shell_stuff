@@ -46,7 +46,7 @@ function print_git(){
 }
 
 function __print_ref(){
-    local rev=$(git tag --points-at HEAD | tail -n 1)
+    local rev=$(git tag --points-at HEAD 2>/dev/null | tail -n 1)
     local type=tag
     if [[ -z $rev ]]; then
         rev=$(git branch --show-current)
