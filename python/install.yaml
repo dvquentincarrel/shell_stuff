@@ -1,0 +1,10 @@
+dependencies:
+- 'python'
+installation:
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - src: 'bash_prompt.bash'
+      dest: '050_python_prompt.bash'
+    - src: 'vars.bash'
+      dest: '051_python_vars.bash'
