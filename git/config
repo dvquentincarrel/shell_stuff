@@ -30,10 +30,10 @@
 [merge]
 	tool = nvimdiff
 [mergetool.vimdiff]
-	layout = LOCAL,BASE / MERGED
+	layout = LOCAL,REMOTE / MERGED + BASE,LOCAL + BASE,REMOTE
 	trustExitCode = false
 [mergetool.nvimdiff]
-	layout = LOCAL,BASE / MERGED
+	layout = LOCAL,REMOTE / MERGED + BASE,LOCAL + BASE,REMOTE
 	trustExitCode = false
 #[mergetool "nvimdiff"]
 #	cmd = nvim -f -d -c '$wincmd w' -c 'wincmd J' $LOCAL $REMOTE $MERGED
