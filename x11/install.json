@@ -1,5 +1,5 @@
 {
-    "dependencies": ["xrandr", "xset", "setxkbmap", "uname", "grep"],
+    "dependencies": ["xrandr", "xset", "setxkbmap", "uname", "grep", "udiskie"],
     "installation": {
         "config": {
             "dir": "$HOME",
