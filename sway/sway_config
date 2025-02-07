@@ -1,0 +1,200 @@
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+include $XDG_CONFIG_HOME/sway/_*
+
+#                                  o------o
+#                                  |Layout|
+#                                  o------o
+output HDMI-A-1 pos 0 0
+output DP-1 pos 1920 0
+
+#                                   o-----o
+#                                   |Input|
+#                                   o-----o
+input type:keyboard repeat_rate 50
+input type:keyboard repeat_delay 250
+input type:keyboard xkb_layout leyaourt
+input type:keyboard xkb_numlock enabled
+
+#                                 o---------o
+#                                 |Title bar|
+#                                 o---------o
+title_align center
+font pango:"JetBrainsMono NFM" 10px
+for_window [shell="xdg_shell"] title_format "<b>%title</b> (%app_id)"
+for_window [shell="xwayland"] title_format "X11 <b>%title</b> (%class)"
+titlebar_padding 1 2
+for_window [all] title_window_icon yes
+
+#                                  o-------o
+#                                  |Borders|
+#                                  o-------o
+default_border pixel 2
+hide_edge_borders vertical
+# Gaps
+gaps inner 10px
+smart_gaps on
+#<class>                 <border>  <background>  <text>   <indicator>  <child>
+client.focused           #ffbb22   #ff9900       #000000  #ff9900      #ff9900
+client.unfocused         #555555   #222222       #999999  #555555      #442211
+client.focused_inactive  #555555   #111111       #ffbb22  #999999      #000000
+
+#                                 -----------
+#                                 | Daemons |
+#                                 -----------
+exec dunst
+exec sway_wallpaper 60
+
+#                               o---------------o
+#                               | Sound control |
+#                               o---------------o
+set $refresh_statusbar pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_statusbar
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_statusbar
+bindsym Shift+XF86AudioRaiseVolume exec change_volume global 3%+ && $refresh_statusbar
+bindsym Shift+XF86AudioLowerVolume exec change_volume global 3%- && $refresh_statusbar
+bindsym XF86AudioRaiseVolume exec app_vol +3%
+bindsym XF86AudioLowerVolume exec app_vol -3%
+
+#                                    o----------o
+#                                    | Keybinds |
+#                                    o----------o
+bindsym $mod+Shift+c reload
+bindsym $mod+x exec foot
+bindsym $mod+space exec "foot -e bash -c 'export NOMUXER=true; exec bash'"
+bindsym $mod+d exec fuzzel
+
+bindsym $mod+Shift+q kill
+
+# Focus
+focus_follows_mouse no
+focus_wrapping yes
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
+# Move
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Splits
+bindsym $mod+g split horizontal
+bindsym $mod+v split vertical
+
+# Layouts
+workspace_layout stacking
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen toggle
+
+# Floating / tiling (LMB + $mod to move, RMB + $mod to resize)
+floating_modifier $mod
+bindsym $mod+Shift+Return floating toggle
+bindsym $mod+Return focus mode_toggle
+
+# Auto floating
+floating_minimum_size 900 x 500
+workspace_auto_back_and_forth yes
+for_window [class="Pavucontrol"] floating enable
+for_window [class="FLOATING"] floating enable
+for_window [class="Tk"] floating enable
+for_window [class="^steam$" title="^(?!Steam).*$"] floating enable
+
+# Workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+exclam      workspace number $ws1
+bindsym $mod+at          workspace number $ws2
+bindsym $mod+numbersign  workspace number $ws3
+bindsym $mod+dollar      workspace number $ws4
+bindsym $mod+percent     workspace number $ws5
+bindsym $mod+asciicircum workspace number $ws6
+bindsym $mod+ampersand   workspace number $ws7
+bindsym $mod+asterisk    workspace number $ws8
+bindsym $mod+parenleft   workspace number $ws9
+bindsym $mod+parenright  workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+1 move container to workspace number $ws1
+bindsym $mod+2 move container to workspace number $ws2
+bindsym $mod+3 move container to workspace number $ws3
+bindsym $mod+4 move container to workspace number $ws4
+bindsym $mod+5 move container to workspace number $ws5
+bindsym $mod+6 move container to workspace number $ws6
+bindsym $mod+7 move container to workspace number $ws7
+bindsym $mod+8 move container to workspace number $ws8
+bindsym $mod+9 move container to workspace number $ws9
+bindsym $mod+0 move container to workspace number $ws10
+
+# Scratchpad
+bindsym $mod+Shift+x move container scratchpad
+bindsym $mod+Shift+z scratchpad show
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e mode "exit"; exec swaynag --message "Quit?" --type warning \
+    --button-no-terminal '<C-s>: Shutdown' 'shutdown --poweroff 0' \
+    --button-no-terminal '<C-r>: Reboot' 'shutdown --reboot 0' \
+    --button-no-terminal '<C-y>: Kill sway' 'swaysmg kill' \
+    --button-dismiss-no-terminal 'Esc: Cancel' 'swaymsg mode default'
+mode "exit" {
+	bindsym Escape mode "default" ; exec pkill swaynag
+	bindsym Ctrl+Shift+s exec shutdown --poweroff 0
+	bindsym Ctrl+Shift+r exec shutdown --reboot 0
+	bindsym Ctrl+Shift+y exec swaymsg exit
+}
+
+# Resize (can also use $mod+RMB)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Mod1+Left resize shrink width 5 px
+        bindsym Mod1+Down resize grow height 5 px
+        bindsym Mod1+Up resize shrink height 5 px
+        bindsym Mod1+Right resize grow width 5 px
+
+        bindsym Escape mode "default"
+}
+
+#                                o-----------o
+#                                |Screenshots|
+#                                o-----------o
+bindsym Mod4+Shift+s exec '_grim --options | fuzzel -d | xargs _grim '
+
+# Swaybar, displays workspaces & status infos
+bar {
+	position top
+	swaybar_command waybar
+}
+
+# Lenny
+bindsym $mod+ctrl+l exec 'printf "( ͡° ͜ʖ ͡°)" | wl-copy; notify-send -t 333 "( ͡° ͜ʖ ͡°)"'
+
+# Keyboard layout
+bindsym Mod4+Mod1+k exec 'printf "%s\n" leyaourt fr us | fuzzel -d | xargs input type:keyboard xkb_layout'
+
+# Screen locing
+bindsym Mod1+F2 exec lockscreen
+bindsym Mod1+F4 exec lockscreen
+
+# vim: ft=swayconfig

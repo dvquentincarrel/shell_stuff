@@ -1,0 +1,21 @@
+dependencies:
+- sway
+- grim
+- swappy
+- swaybg
+- slurp
+installation:
+  config:
+    dir: $HOME/.config/sway
+    renamed_files:
+    - src: sway_config
+      dest: config
+  scripts:
+    dir: $HOME/.local/bin
+    strip_ext: true
+    files:
+      - _grim.bash
+      - _swappy.bash
+      - sway_wallpaper.bash
+      - sway_tmux_reset_socket.bash
+      - start_sway.bash
