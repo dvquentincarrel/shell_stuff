@@ -18,7 +18,7 @@ ls=$(command -v eza exa ls | head -n1)
 alias free='free -h' #blocks = mega
 alias df='df -h' #human readable sizes
 alias du='du -ch' #human readable AND grand total at the end
-alias ps="ps -o pid,ppid,pgid,tty,stat,thcount,pcpu,pmem,etime,cputime,cmd"
+alias ps="ps -o pid,ppid,pgid,tty,stat,thcount,nice,pcpu,pmem,etime,cputime,cmd"
 alias pgrep="pgrep -li"
 alias ll="$ls -lh "
 alias lla="$ls -lah "
