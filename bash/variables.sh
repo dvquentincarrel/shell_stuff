@@ -3,6 +3,7 @@
 export HISTCONTROL="ignoreboth" # If starting with a space, if same command as previously
 export HISTTIMEFORMAT="%y/%m/%d-%H:%M:%S " # YY/MM/DD format to timestamp entries
 export HISTSIZE=5000000
+export HISTIGNORE='th'
 ## General
 export CALCHISTFILE=/dev/null # To disable the use of a history file for /bin/calc
 export LESSHISTFILE=/dev/null # Same thing for /bin/less

@@ -1,12 +1,13 @@
 # Absolute melting pot of functions and utilities
 
 function th {
-    if [[ -e $TMPDIR/bash_nohist ]]; then
-        env rm "$TMPDIR/bash_nohist"
-        printf '\x1b[32mhistory enabled\x1b[m\n' 1>&2
+    if [[ $HISTFILE = /dev/null ]]; then
+        echo 'History enabled'
+        export HISTFILE="$_OLD_HISTFILE"
     else
-        touch "$TMPDIR/bash_nohist"
-        printf '\x1b[31mhistory disabled\x1b[m\n' 1>&2
+        _OLD_HISTFILE="$HISTFILE"
+        export HISTFILE=/dev/null
+        echo 'History disabled'
     fi
 }
 export -f th
