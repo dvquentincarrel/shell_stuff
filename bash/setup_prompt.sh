@@ -12,6 +12,22 @@ else
     export FANCY_SYMBOLS=true
 fi
 
+if ! $FANCY_SYMBOLS; then
+    __dlm=('< ' ' | ' ' >')
+    __cls=('\[\033[33m\]' '\[\033[m\]')
+    names=(__lhs __mid __rhs)
+    for ((i=0; i<3; i++)); do
+        printf -v ${names[$i]} "${__cls[0]}${__dlm[$i]}${__cls[1]}"
+    done
+else
+    edges_fg_color='38:5:234'
+    bg_color='48:5:234'
+    delim_fg_color='97'
+    __lhs='\[\033['$edges_fg_color'm\]\[\033[0;'$bg_color'm\]'
+    __mid='\[\033['${bg_color}\;${delim_fg_color}'m\]▕ \[\033[0;'$bg_color'm\]'
+    __rhs='\[\033[0;'$edges_fg_color'm\]\[\033[m\]'
+fi
+
 # Adds a function to the prompt construction
 function _add_prompt(){
 	if [[ $1 = pre ]]; then
@@ -26,13 +42,6 @@ function _add_prompt(){
 		)
 	fi
 }
-
-__cls=('\[\033[33m\]' '\[\033[m\]')
-__dlm=(\< \| \>)
-names=(__lhs __mid __rhs)
-for ((i=0; i<3; i++)); do
-	printf -v ${names[$i]} "${__cls[0]}${__dlm[$i]}${__cls[1]}"
-done
 
 __prompt=(
 	'echo "$__ret"'
@@ -52,7 +61,7 @@ function _gen_prompt(){
 		fi
 	done
 
-    PS1="$__lhs $(join_by " $__mid " "${blocks[@]}") $__rhs "
+    PS1="$__lhs$(join_by "$__mid" "${blocks[@]}")$__rhs "
 }
 
 PROMPT_COMMAND+=(_gen_prompt)

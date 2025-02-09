@@ -175,9 +175,9 @@ function reload {
 export -f reload
 
 function join_by {
-    local d=${1-} f=${2-}
+    local delim=${1-} first=${2-}
     if shift 2; then
-        printf %s "$f" "${@/#/$d}"
+        printf "%s" "$first" "${@/#/$delim}"
     else
         echo "join_by needs at least 2 args"
         exit 1

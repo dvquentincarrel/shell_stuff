@@ -69,7 +69,7 @@ function __print_ref(){
         sha)
             rev="$__GIT_C_DETACH$rev";;
     esac
-    echo -n "$rev\[\e[m\]"
+    echo -n "$rev"
 }
 
 function __print_status(){
@@ -102,17 +102,17 @@ function __print_status(){
             printf "'${__GIT_C_UNMERGED//\\/\\\\}'%s#", unmerged
         if(length(behind) != 0 || length(ahead) != 0 )
             if(staged + unstaged + untracked + unmerged != 0) {
-                printf " '${__mid//\\/\\\\}' "
+                printf "'"${__mid//\\/\\\\}"'"
             }
             printf "%s%s", ahead, behind
         }' <<< $(git status --porcelain --branch))
         if [[ -n $output ]]; then
-            echo -n " $__mid $output\[\e[m\]"
+            echo -n "${__mid}${output}"
         fi
 }
 
 function __print_stash(){
-    echo -n " $__mid \[\e[90m\]s$(git stash list | wc -l)\[\e[m\]"
+    echo -n "$__mid\[\e[90m\]s$(git stash list | wc -l)"
 }
 
 # Test if sourced or ran
