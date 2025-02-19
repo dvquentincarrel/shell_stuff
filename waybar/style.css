@@ -1,0 +1,263 @@
+/* Keyframes */
+
+@keyframes blink-critical {
+	to {
+		background-color: @critical;
+	}
+}
+
+
+/* Styles */
+
+
+/* Colors */
+
+@define-color darkbrick	#7C444F;
+
+@define-color  red        #cc241d;
+@define-color  orange     #d65d0e;
+@define-color  green      #98971a;
+@define-color  yellow     #d79921;
+@define-color  blue       #458588;
+@define-color  purple     #b16286;
+@define-color  aqua       #689d6a;
+@define-color  black      #282828;
+
+@define-color  bred       #fb4934;
+@define-color  borange    #fe8019;
+@define-color  bgreen     #b8bb26;
+@define-color  byellow    #fabd2f;
+@define-color  bblue      #83a598;
+@define-color  bpurple    #d3869b;
+@define-color  baqua      #8ec07c;
+
+@define-color  darkgray   #282828;
+@define-color  gray       #928374;
+@define-color  lightgray  #a89984;
+@define-color  white      #ebdbb2;
+
+@define-color  warning    @byellow;
+@define-color  critical   @red;
+@define-color  mode       @black;
+@define-color  unfocused  @darkgray;
+@define-color  focused    @baqua;
+@define-color  inactive   @purple;
+
+             /* Modules */
+@define-color  time     @darkbrick;
+@define-color  sound    @blue;
+@define-color  disk     @aqua;
+@define-color  memory   @green;
+@define-color  cpu      @yellow;
+@define-color  network  @orange;
+/*@define-color  temp     @bgreen;*/
+@define-color  battery  @red;
+@define-color  date     @black;
+
+/* Reset all styles */
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	icon-shadow: none;
+}
+
+/* The whole bar */
+#waybar {
+	background: rgba(0, 0, 0, 0.6); /* #282828e0 */
+	color: @white;
+	font-family: JetBrains Mono;
+	font-size: 14px;
+	/*font-weight: bold;*/
+}
+
+/* Each module */
+#battery,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#user,
+#clock.date,
+#mpris {
+	padding-left: 6pt;
+	padding-right: 6pt;
+}
+
+/* Each critical module */
+#mode,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning.discharging {
+	color: @warning;
+}
+
+
+                                  /*==============*/
+                                  /*  Left module */
+                                  /*==============*/
+
+#mode {
+	color: @white;
+	background: @mode;
+}
+#workspaces button {
+	font-weight: bold;
+	padding-left: 2pt;
+	padding-right: 2pt;
+	color: @white;
+	background: @unfocused;
+}
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	color: @braqua;
+	background: @unfocused;
+}
+/* Active (on focused output) */
+#workspaces button.focused {
+	color: @black;
+	background: @focused;
+}
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @black;
+	background: @warning;
+}
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @black;
+	color: @white;
+}
+#window {
+	margin-right: 35pt;
+	margin-left: 35pt;
+}
+#custom-wspace_none {
+	font-size: 11pt;
+	color: @date;
+	background: transparent;
+}
+                                /*===============*/
+                                /* Center module */
+                                /*===============*/
+#clock.time {
+	background: @time;
+    font-weight: bold;
+	padding-left: 8pt;
+	padding-right: 8pt;
+	color: @white;
+}
+#custom-larrow, #custom-rarrow {
+	color: @time;
+}
+
+                                  /*==============*/
+                                  /* Right module */
+                                  /*==============*/
+
+
+#custom-none_pulse {
+	font-size: 11pt;
+	color: @sound;
+	background: transparent;
+}
+
+#pulseaudio {
+	background: @sound;
+	color: @black;
+}
+
+#custom-pulse_disk {
+	font-size: 11pt;
+	color: @disk;
+	background: @sound;
+}
+
+#disk {
+	background: @disk;
+	color: @black;
+}
+
+#custom-disk_mem {
+	font-size: 11pt;
+	color: @memory;
+	background: @disk;
+}
+
+#memory {
+	background: @memory;
+	color: @black;
+}
+
+#custom-mem_cpu {
+	color: @cpu;
+	background: @memory;
+	font-size: 11pt;
+}
+
+#cpu {
+	background: @cpu;
+	color: @black;
+}
+
+#custom-cpu_nw {
+	font-size: 11pt;
+	color: @network;
+	background: @cpu;
+}
+
+#network {
+	background: @network;
+	color: @black;
+}
+
+#custom-nw_date {
+	font-size: 11pt;
+	color: @date;
+	background: @network;
+}
+
+#clock.date {
+	background: @date;
+	color: @white;
+}
+
+#custom-date_tray {
+	color: @date;
+	background: @date;
+	font-size: 11pt;
+}
+
+#tray {
+	background: @date;
+}
+
+#battery {
+	background: @battery;
+	color: @white;
+}

@@ -1,0 +1,8 @@
+dependencies:
+- waybar
+installation:
+  config:
+    dir: $HOME/.config/waybar
+    files:
+    - config.jsonc
+    - style.css

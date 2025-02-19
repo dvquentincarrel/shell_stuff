@@ -1,0 +1,199 @@
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"sway/mode",
+		"sway/workspaces",
+		"custom/wspace_none",
+		"sway/scratchpad",
+	],
+    "modules-center": [
+		"custom/larrow",
+		"clock#time",
+		"custom/rarrow",
+    ],
+	"modules-right": [
+		"custom/none_pulse",
+		"pulseaudio",
+		"custom/pulse_disk",
+		"disk",
+		"custom/disk_mem",
+		"memory",
+		"custom/mem_cpu",
+		"cpu",
+		"custom/cpu_nw",
+		"network",
+		"custom/nw_date",
+		"clock#date",
+		"custom/date_tray",
+		"tray",
+	],
+
+	// Modules
+
+    //                           Left modules
+	"sway/mode": {
+		"format": "{}",
+		"tooltip": false
+	},
+	"custom/wspace_none": {
+		"format": "",
+		"tooltip": false
+	},
+	"sway/workspaces": {
+		"disable-scroll-wraparound": true,
+		"smooth-scrolling-threshold": 1,
+		"enable-bar-scroll": true,
+		"format": "{name}"
+	},
+	"sway/scratchpad": {
+        "tooltip": false,
+        "format": " {icon} {count}",
+        "show-empty": false,
+        "format-icons": [""],
+	},
+
+    //                           Center modules
+	"custom/larrow": {
+		"format": "",
+		"tooltip": false
+	},
+	"clock#time": {
+		"interval": 1,
+		"format": "{:%T}",
+		"tooltip": false
+	},
+	"custom/rarrow": {
+		"format": "",
+		"tooltip": false
+	},
+
+    //                           Right modules
+	"custom/none_pulse": {
+		"format": "",
+		"tooltip": false
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [" ", "  "]
+		},
+		"scroll-step": 1,
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"tooltip": false
+	},
+	"custom/pulse_disk": {
+		"format": "",
+		"tooltip": false
+	},
+	"disk": {
+	},
+	"custom/disk_mem": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/disk_mem": {
+		"format": "",
+		"tooltip": false
+	},
+	"memory": {
+		"interval": 5,
+		"format": " {used:0.1f}G/{total:0.1f}G",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		},
+		"tooltip": false
+	},
+	"custom/mem_cpu": {
+		"format": "",
+		"tooltip": false
+	},
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": "  {usage}%",
+		"format-alt": "  {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+	"custom/cpu_nw": {
+		"format": "",
+		"tooltip": false
+	},
+	"network": {
+		"interval": 5,
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-ethernet": " {ifname}",
+		"format-disconnected": "No connection",
+		"format-alt": " {ipaddr}/{cidr}",
+		"tooltip": false
+	},
+	"custom/nw_date": {
+		"format": "",
+		"tooltip": false
+	},
+	"clock#date": {
+		"interval": 60,
+		"format": "{:%F}",
+		"tooltip": false
+		//"tooltip-format": "{:%e %B %Y}"
+	},
+	"custom/date_tray": {
+		"format": "",
+		"tooltip": false
+	},
+	"tray": {
+		"icon-size": 18
+		//"spacing": 10
+	},
+
+    //                           Unused modules
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "{icon} {capacity}% ({time})",
+		"format-charging": " {capacity}% ({time})",
+		"format-charging-full": " {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": "{icon} {temperatureC}°",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+}
+
+// vi:ft=jsonc
