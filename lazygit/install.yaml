@@ -1,0 +1,9 @@
+dependencies:
+- lazygit
+- delta
+installation:
+  config:
+    dir: $HOME/.config/lazygit
+    files:
+    - config.yml
+

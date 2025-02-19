@@ -1,9 +1,0 @@
-{
-    "dependencies": ["dunst", "notify-send"],
-    "installation": {
-        "config": {
-            "dir": "$HOME/.config/dunst",
-            "files": ["dunstrc"]
-        }
-    }
-}

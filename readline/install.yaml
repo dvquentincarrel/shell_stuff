@@ -1,0 +1,16 @@
+installation:
+  config:
+    dir: $HOME/.config/readline
+    files:
+    - inputrc
+  script:
+    dir: $HOME/.local/bin
+    files:
+    - readline_keybinds.sh
+    strip_ext: true
+  setup:
+    dir: $HOME/.config/bash/setup/
+    renamed_files:
+    - dest: 010_ls_colors.sh
+      src: ls_colors.sh
+

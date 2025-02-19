@@ -1,0 +1,13 @@
+dependencies:
+- less
+installation:
+  config:
+    dir: $HOME/.config
+    files:
+    - lesskey
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - dest: 008_LESS_TERMCAP.sh
+      src: LESS_TERMCAP.sh
+

@@ -1,0 +1,9 @@
+dependencies:
+- bat
+installation:
+  config:
+    dir: $HOME/.config/bat
+    renamed_files:
+    - dest: config
+      src: bat.rc
+

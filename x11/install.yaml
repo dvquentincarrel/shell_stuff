@@ -1,0 +1,25 @@
+dependencies:
+- xrandr
+- xset
+- setxkbmap
+- uname
+- grep
+- udiskie
+installation:
+  config:
+    dir: $HOME
+    renamed_files:
+    - dest: .xprofile
+      src: xprofile.sh
+    - dest: .xinitrc
+      src: xinit.sh
+    - dest: .xsession
+      src: xsession.sh
+    - dest: .xsessionrc
+      src: xsession.sh
+  script:
+    dir: $HOME/.local/bin
+    files:
+    - random_wallpaper.bash
+    strip_ext: true
+

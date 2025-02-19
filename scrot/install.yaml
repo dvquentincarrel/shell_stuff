@@ -1,0 +1,9 @@
+dependencies:
+- scrot
+installation:
+  script:
+    dir: $HOME/.local/bin
+    files:
+    - wrop.sh
+    strip_ext: true
+

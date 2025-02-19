@@ -1,0 +1,20 @@
+dependencies:
+- fzf
+installation:
+  config:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - dest: 006_fzf_env_vars.bash
+      src: env_vars.bash
+    - dest: 007_fzf_functions.bash
+      src: functions.bash
+    - dest: 999_bash_integration.bash
+      src: bash_integration.bash
+  script:
+    dir: $HOME/.local/bin
+    files:
+    - fzf_preview.bash
+opt_dependencies:
+- dragon
+- bat
+

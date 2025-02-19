@@ -1,0 +1,9 @@
+dependencies:
+- ssh
+installation:
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - dest: 999_ssh_aliases.bash
+      src: aliases.bash
+

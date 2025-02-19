@@ -1,0 +1,30 @@
+dependencies:
+- bash
+- ps
+- perl
+installation:
+  config:
+    dir: $HOME
+    renamed_files:
+    - dest: .bashrc
+      src: bashrc.sh
+    - dest: .profile
+      src: profile.sh
+    - dest: .bash_profile
+      src: bash_profile.sh
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - dest: 001_aliases.sh
+      src: aliases.sh
+    - dest: 002_init_func.sh
+      src: init_func.sh
+    - dest: 003_options.bash
+      src: options.bash
+    - dest: 004_setup_prompt.sh
+      src: setup_prompt.sh
+    - dest: 005_variables.sh
+      src: variables.sh
+    - dest: 500_misc_complete.bash
+      src: misc_complete.bash
+

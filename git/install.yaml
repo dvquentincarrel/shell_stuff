@@ -1,0 +1,22 @@
+dependencies:
+- git
+- grep
+- gawk
+- tail
+- cut
+installation:
+  config:
+    dir: $HOME/.config/git
+    files:
+    - config
+    - gitignore
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - dest: 999_git_alias_autocomplete.bash
+      src: autocomplete.bash
+    - dest: 100_git_aliases.bash
+      src: aliases.bash
+    - dest: 10_git_prompt.bash
+      src: bash_prompt.bash
+

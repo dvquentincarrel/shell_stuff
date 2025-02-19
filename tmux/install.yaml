@@ -1,0 +1,25 @@
+dependencies:
+- tmux
+- grep
+- awk
+- tail
+- cut
+installation:
+  config:
+    dir: $HOME/.config/tmux
+    files:
+    - tmux.conf
+    - status.conf
+    - style.conf
+    - keybinds.conf
+  scripts:
+    dir: $HOME/.local/bin
+    files:
+    - notmux.sh
+    strip_ext: true
+  setup:
+    dir: $HOME/.config/bash/setup
+    renamed_files:
+    - dest: 000_auto_tmux.sh
+      src: auto_tmux.sh
+
