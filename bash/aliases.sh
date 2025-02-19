@@ -5,7 +5,7 @@ unalias -a
 alias egrep='egrep --colour=auto' #COLORS
 alias fgrep='fgrep --colour=auto' #MORE COLORS
 alias grep='grep --colour=auto' #EVEN MORE COLORS
-alias ls='ls --color=auto --group-directories-first' #STILL MORE COLORS
+alias ls="$(command -v eza exa ls | head -n1 || 'ls --color=auto --group-directories-first')"
 alias cp="cp -i" # confirm before overwriting something
 alias df='df -h' # human-readable sizes
 alias pu='pushd'
@@ -14,15 +14,14 @@ alias more=less
 
 # ===== Redefines =====
 
-ls=$(command -v eza exa ls | head -n1)
 alias free='free -h' #blocks = mega
 alias df='df -h' #human readable sizes
 alias du='du -ch' #human readable AND grand total at the end
 alias ps="ps -o pid,ppid,pgid,tty,stat,thcount,nice,pcpu,pmem,etime,cputime,cmd"
 alias pgrep="pgrep -li"
-alias ll="$ls -lh "
-alias lla="$ls -lah "
-alias llaa="$ls -dhl .*"
+alias ll='ls -lh '
+alias lla='ls -lah '
+alias llaa='ls -dhl .*'
 alias rm='rm -vi'
 alias mv='mv -i'
 alias cal='cal -my'
