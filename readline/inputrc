@@ -66,3 +66,5 @@ set colored-completion-prefix on
 set menu-complete-display-prefix Off
 # "Escapes" pasted content, allows text with newline to be pasted without running the command directly
 set enable-bracketed-paste On
+# Tab-completion of symlink dirs append slash at the end
+set mark-symlinked-directories On
