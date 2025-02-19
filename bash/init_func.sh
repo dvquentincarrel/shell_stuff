@@ -92,13 +92,20 @@ function fcl {
         echo "Usage: fcl [-u] FILE"; return 1
     fi
 
-    echo ${PREFIX}$(readlink -f "$@") |
-        tee \
-        >(tr -d '\n' | xclip -sel clip) \
-        >(sed -e 's/^/\x1b[1;96m/' -e 's/$/\x1b[m sent to clipboard/') \
-        >/dev/null
-    }
-    export -f fcl
+    paths=()
+    for file in "$@"; do
+        paths+=("${PREFIX}$(readlink -f "$file")")
+    done
+
+    if [[ $XDG_SESSION_TYPE = wayland ]]; then
+        wl-copy "${paths[@]}"
+    else
+        tr -d '\n' | xclip -sel clip
+    fi
+
+    sed -e 's/^/\x1b[1;96m/' -e 's/$/\x1b[m sent to clipboard/' <<< "${paths[@]}"
+}
+export -f fcl
 
 # Easier to remember than history -n
 function sync_hist {
