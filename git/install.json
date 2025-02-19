@@ -1,5 +1,5 @@
 {
-    "dependencies": ["git", "grep", "awk", "tail", "cut"],
+    "dependencies": ["git", "grep", "gawk", "tail", "cut"],
     "installation": {
         "config": {
             "dir": "$HOME/.config/git",
