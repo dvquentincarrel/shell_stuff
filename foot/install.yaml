@@ -1,0 +1,7 @@
+dependencies:
+- 'foot'
+installation:
+  config:
+    dir: $HOME/.config/foot
+    files:
+    - foot.ini
