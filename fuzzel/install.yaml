@@ -1,0 +1,7 @@
+dependencies:
+- fuzzel
+installation:
+  config:
+    dir: $HOME/.config/fuzzel
+    files:
+    - fuzzel.ini
