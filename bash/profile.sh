@@ -1,10 +1,7 @@
-#!/bin/sh
+for file in ~/.config/profile/*sh; do
+    . "$file"
+done
 
-if [[ $HOSTNAME =~ ^m ]]; then
-    export XDG_PICTURES_DIR="/mnt/storage/pictures"
-elif [[ $HOSTNAME =~ ^O ]]; then
-    export XDG_PICTURES_DIR=~/Images
-fi
 export XDG_DATA_DIRS=${XDG_DATA_DIRS:-"/usr/local/share:/usr/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
