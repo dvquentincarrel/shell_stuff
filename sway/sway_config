@@ -25,7 +25,6 @@ font pango:"JetBrainsMono NFM" 10px
 for_window [shell="xdg_shell"] title_format "<b>%title</b> (%app_id)"
 for_window [shell="xwayland"] title_format "X11 <b>%title</b> (%class)"
 titlebar_padding 1 2
-for_window [all] title_window_icon yes
 
 #                                  o-------o
 #                                  |Borders|
