@@ -1,0 +1,9 @@
+opt_dependencies:
+- wpctl
+- pactl
+installation:
+  scripts:
+    dir: $HOME/.local/bin
+    strip_ext: true
+    files:
+    - change_volume.bash
