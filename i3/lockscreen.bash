@@ -18,3 +18,4 @@ i3lock \
     --line-uses-inside \
     --wrong-text "( ͡° ͜ʖ ͡°)" \
     --noinput-text '' && killall -SIGUSR2 dunst # resume
+logger "Unlock at $(date +'%H:%M:%S %d-%m-%Y')"
