@@ -1,7 +1,8 @@
+opt_dependencies:
+- swappy
 dependencies:
 - sway
 - grim
-- swappy
 - swaybg
 - slurp
 installation:
@@ -19,3 +20,4 @@ installation:
       - sway_wallpaper.bash
       - sway_tmux_reset_socket.bash
       - start_sway.bash
+      - lockscreen.bash
