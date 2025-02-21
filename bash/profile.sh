@@ -1,5 +1,5 @@
 for file in ~/.config/profile/*sh; do
-    . "$file"
+    . "$file" 2>/dev/null # Errs out if no file is found, glob expr is returned as literal
 done
 
 export XDG_DATA_DIRS=${XDG_DATA_DIRS:-"/usr/local/share:/usr/share"}
