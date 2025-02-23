@@ -190,7 +190,7 @@ bar {
 bindsym $mod+ctrl+l exec 'printf "( ͡° ͜ʖ ͡°)" | wl-copy; notify-send -t 333 "( ͡° ͜ʖ ͡°)"'
 
 # Keyboard layout
-bindsym Mod4+Mod1+k exec 'printf "%s\n" leyaourt fr us | fuzzel -d | xargs input type:keyboard xkb_layout'
+bindsym Mod4+Mod1+k exec 'printf "%s\n" leyaourt fr us | fuzzel -d | xargs swaymsg input type:keyboard xkb_layout'
 
 # Screen locing
 bindsym Mod1+F2 exec lockscreen
