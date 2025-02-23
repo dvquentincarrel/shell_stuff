@@ -1,3 +1,5 @@
+/* INSPIRED FROM mxkrsv's CONFIG */
+
 /* Keyframes */
 
 @keyframes blink-critical {
@@ -6,13 +8,9 @@
 	}
 }
 
-
-/* Styles */
-
-
 /* Colors */
 
-@define-color darkbrick	#7C444F;
+@define-color  darkbrick  #7C444F;
 
 @define-color  red        #cc241d;
 @define-color  orange     #d65d0e;
@@ -23,12 +21,7 @@
 @define-color  aqua       #689d6a;
 @define-color  black      #282828;
 
-@define-color  bred       #fb4934;
-@define-color  borange    #fe8019;
-@define-color  bgreen     #b8bb26;
 @define-color  byellow    #fabd2f;
-@define-color  bblue      #83a598;
-@define-color  bpurple    #d3869b;
 @define-color  baqua      #8ec07c;
 
 @define-color  darkgray   #282828;
@@ -50,7 +43,6 @@
 @define-color  memory   @green;
 @define-color  cpu      @yellow;
 @define-color  network  @orange;
-/*@define-color  temp     @bgreen;*/
 @define-color  battery  @red;
 @define-color  date     @black;
 
@@ -93,6 +85,7 @@
 #mpris {
 	padding-left: 6pt;
 	padding-right: 6pt;
+    background: @black;
 }
 
 /* Each critical module */
@@ -116,7 +109,6 @@
 #battery.warning.discharging {
 	color: @warning;
 }
-
 
                                   /*==============*/
                                   /*  Left module */
@@ -180,84 +172,44 @@
                                   /* Right module */
                                   /*==============*/
 
-
-#custom-none_pulse {
+#custom-none_lsep {
 	font-size: 11pt;
-	color: @sound;
+	color: @gray;
 	background: transparent;
+}
+#custom-lsep {
+	font-size: 11pt;
+	background: @black;
+	color: @gray;
+}
+#custom-rsep {
+	font-size: 11pt;
+	background: @gray;
+	color: @black;
 }
 
 #pulseaudio {
-	background: @sound;
-	color: @black;
+	color: @sound;
 }
-
-#custom-pulse_disk {
-	font-size: 11pt;
-	color: @disk;
-	background: @sound;
-}
-
 #disk {
-	background: @disk;
-	color: @black;
+	color: @disk;
 }
-
-#custom-disk_mem {
-	font-size: 11pt;
-	color: @memory;
-	background: @disk;
-}
-
 #memory {
-	background: @memory;
-	color: @black;
+	color: @memory;
 }
-
-#custom-mem_cpu {
-	color: @cpu;
-	background: @memory;
-	font-size: 11pt;
-}
-
 #cpu {
-	background: @cpu;
-	color: @black;
+	color: @cpu;
 }
-
-#custom-cpu_nw {
-	font-size: 11pt;
-	color: @network;
-	background: @cpu;
-}
-
 #network {
-	background: @network;
-	color: @black;
+	color: @network;
 }
-
-#custom-nw_date {
-	font-size: 11pt;
-	color: @date;
-	background: @network;
-}
-
 #clock.date {
-	background: @date;
 	color: @white;
 }
-
-#custom-date_tray {
-	color: @date;
-	background: @date;
-	font-size: 11pt;
-}
-
 #tray {
-	background: @date;
+	color: @date;
 }
 
 #battery {
-	background: @battery;
-	color: @white;
+	color: @battery;
 }
