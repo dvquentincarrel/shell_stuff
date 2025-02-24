@@ -108,7 +108,10 @@ function __print_status(){
 }
 
 function __print_stash(){
-    echo -n "$__mid\[\e[90m\]s$(git stash list | wc -l)"
+    output=$(git stash list | wc -l)
+    if [[ $output != 0 ]]; then
+        echo -n "$__mid\[\e[90m\]s$output"
+    fi
 }
 
 function __print_divergence(){
