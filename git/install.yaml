@@ -9,7 +9,9 @@ installation:
     dir: $HOME/.config/git
     files:
     - config
-    - gitignore
+    renamed_files:
+    - src: gitignore
+      dest: ignore
   setup:
     dir: $HOME/.config/bash/setup
     renamed_files:
