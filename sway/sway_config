@@ -49,12 +49,12 @@ exec sway_wallpaper 60
 #                               | Sound control |
 #                               o---------------o
 set $refresh_statusbar pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_statusbar
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_statusbar
-bindsym XF86AudioRaiseVolume exec change_volume global 3%+ && $refresh_statusbar
-bindsym XF86AudioLowerVolume exec change_volume global 3%- && $refresh_statusbar
-bindsym Shift+XF86AudioRaiseVolume exec app_vol +3%
-bindsym Shift+XF86AudioLowerVolume exec app_vol -3%
+bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_statusbar
+bindsym --locked XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_statusbar
+bindsym --locked XF86AudioRaiseVolume exec change_volume global 3%+ && $refresh_statusbar
+bindsym --locked XF86AudioLowerVolume exec change_volume global 3%- && $refresh_statusbar
+bindsym --locked Shift+XF86AudioRaiseVolume exec app_vol +3%
+bindsym --locked Shift+XF86AudioLowerVolume exec app_vol -3%
 
 #                                    o----------o
 #                                    | Keybinds |
