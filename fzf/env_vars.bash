@@ -9,7 +9,7 @@ export FZF_HELP=\
 [93m^C / ^G / ^Q / Esc[m   exit"
 export FZF_DEFAULT_OPTS='
 --height 50%
---bind "ctrl-e:execute($EDITOR {})"
+--bind "ctrl-r:execute($EDITOR {})"
 --bind "ctrl-d:execute(dragon {+})"
 --bind "ctrl-o:execute(xdg-open {})"
 --bind "ctrl-p:toggle-preview"
