@@ -1,0 +1,8 @@
+dependencies:
+- 'guile'
+installation:
+  config:
+    dir: $HOME
+    renamed_files:
+    - src: 'config.scm'
+      dest: '.guile'
