@@ -1,0 +1,10 @@
+dependencies:
+- 'fish'
+installation:
+  config:
+    dir: $HOME/.config/fish/conf.d
+    files:
+    - prompt.fish
+    - git_prompt.fish
+    - variables.fish
+    - aliases.fish

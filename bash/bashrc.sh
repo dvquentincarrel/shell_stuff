@@ -20,3 +20,7 @@ fi
 PROMPT_COMMAND=('history -a')
 
 for file in $(echo ${HOME}/.config/bash/setup/* 2>/dev/null); do source $file; done
+
+if [[ -z $NOFISH ]]; then
+    command -v fish &>/dev/null && exec fish
+fi

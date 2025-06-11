@@ -17,8 +17,7 @@ export TMPDIR=${TMPDIR:-${XDG_RUNTIME_DIR:-/tmp}}
 export PAGER='less -S'
 shopt -u expand_aliases
 {
-    export EDITOR=$(which nvim || which vim || which vi || which micro || which nano)
-    #export VISUAL=$(which neovide || { [[ -n $ETERM ]] && echo $ETERM $EDITOR; } || which gvim || which gedit || which code)
+    export EDITOR=$(command -v nvim vim which vi which micro which nano | head -n1)
     export VISUAL=$EDITOR
 } 2>/dev/null
 shopt -s expand_aliases
@@ -27,5 +26,3 @@ if [[ $EDITOR =~ nvim ]]; then
 elif [[ $EDITOR =~ vim ]]; then
     export MANPAGER="vim +MANPAGER --not-a-term -"
 fi
-
-#export TERM_ITALICS="true" #
