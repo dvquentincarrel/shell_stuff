@@ -28,7 +28,6 @@ alias cal='cal -my'
 alias which='which -a'
 alias ping='ping -D -O'
 alias vim='nvim'
-alias sqlite3='sqlite3 -header -column'
 alias man='export COLUMNS=$((COLUMNS - 7)); man'
 alias lazygit='TERM=tmux CONFIG_DIR=$HOME/.config/lazygit lazygit'
 

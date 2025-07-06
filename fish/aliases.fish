@@ -26,7 +26,6 @@ abbr mv 'mv -i'
 abbr cal 'cal -my'
 abbr ping 'ping -D -O'
 abbr vim 'nvim'
-abbr sqlite3 'sqlite3 -header -column'
 abbr lazygit 'TERM=tmux CONFIG_DIR=$HOME/.config/lazygit lazygit'
 
 # ===== New aliases =====

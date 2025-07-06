@@ -1,0 +1,7 @@
+dependencies:
+- 'sqlite3'
+installation:
+  config:
+    dir: $HOME/.config/sqlite3
+    files:
+    - 'sqliterc'
