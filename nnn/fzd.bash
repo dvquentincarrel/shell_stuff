@@ -7,7 +7,7 @@ while [[ -n $base ]]; do
     trails+=($base)
 done
 
-path=$( { printf "%s\n" "${trails[@]}" | sort; find $PWD -maxdepth 4 -type d 2>/dev/null; } | fzf --preview='tree -C -L1 {}')
+path=$( { printf "%s\n" "${trails[@]}" | sort; bf $PWD; } | fzf --preview='tree -C -L1 {}')
 [[ -z $path ]] && exit
 
 echo -n "0c$path" > $NNN_PIPE
