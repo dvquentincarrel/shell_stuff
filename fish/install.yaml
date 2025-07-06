@@ -8,3 +8,4 @@ installation:
     - git_prompt.fish
     - variables.fish
     - aliases.fish
+    - functions.fish
